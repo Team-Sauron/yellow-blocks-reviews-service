@@ -1,0 +1,1 @@
+# smego-reviews-service
