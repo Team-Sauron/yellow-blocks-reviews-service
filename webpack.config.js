@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'developer',
+  mode: 'development',
 
   entry: './client/index.js',
 
