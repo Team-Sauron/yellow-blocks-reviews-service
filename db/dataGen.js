@@ -1,5 +1,6 @@
 const db = require('./index.js');
 const faker = require('faker');
+const fs = require('fs');
 
 let urlArr = [
 'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/01.jpg',
@@ -30,75 +31,69 @@ let urlArr = [
 ];
 let start = 0;
 
-let hasPics;
-
-let picNoPic = function() {
-  hasPics = faker.random.boolean();
-}
-
-let count = 0;
 
 let urlGrab = function() {
-  let limit = faker.random.number({min:0, max:25})
-  let url;
-  if (hasPics) {
-    if (start <= urlArr.length -1) {
-      for (var i = start; i < limit; i++) {
-        url = urlArr[i];
-        start++;
+  let limit = faker.random.number({min:1, max:5});
+  let hasPics = faker.random.boolean()
+  let pic = 1;
+  let url = {};
+
+
+  if (hasPics && start < urlArr.length -1) {
+    for (var j = pic; j <= limit; j++) {
+      for (var i = start; i < urlArr.length -1; i++) {
+        url[`pic${pic}`] = urlArr[i];
         break;
       }
-    } else {
-      start = 0;
+      start++;
+      pic++;
     }
-    return url;
-  } else if (count === 5) {
-    hasPics = false;
-    count = 0;
-  } else {
-    count++;
+  } else if (start === urlArr.length -1) {
+    start = 0;
   }
+  return url;
 }
 
-let seed = function(num) {
+let arr = [];
+let seed = function() {
 
-  let arr = [];
-
-  while (num > 0) {
-    num -= 1;
-    let fakerTest = new db.Review({
-      userdata: {
-        name: faker.internet.userName(),
-        age: faker.random.number({ min: 5, max: 75 }),
-        experience: faker.lorem.word()
-      },
-      review: {
-        title: faker.lorem.words(),
-        text: faker.lorem.paragraphs(),
-        published: faker.date.past(),
-        recommendation: faker.random.boolean(),
-        purchased: faker.hacker.noun(),
-        time: faker.random.number(30),
-        difficulty: faker.random.number(5),
-        value: faker.random.number(5),
-        rating: faker.random.number(5)
-      },
-      pictures: {
-        constains: picNoPic(),
-        pic1: urlGrab(),
-        pic2: urlGrab(),
-        pic3: urlGrab(),
-        pic4: urlGrab(),
-        pic5: urlGrab(),
-      },
-      helpful: {
-        yes: faker.random.number(200),
-        no: faker.random.number(50)
-      }
-    })
-    arr.push(fakerTest)
-  }
-  return arr;
+  let fakerTest = new db.Review({
+    userdata: {
+      name: faker.internet.userName(),
+      age: faker.random.number({ min: 5, max: 75 }),
+      experience: faker.lorem.word()
+    },
+    review: {
+      title: faker.lorem.words(),
+      text: faker.lorem.paragraphs(),
+      published: faker.date.past(),
+      recommendation: faker.random.boolean(),
+      purchased: faker.hacker.noun(),
+      time: faker.random.number(30),
+      difficulty: faker.random.number(5),
+      value: faker.random.number(5),
+      rating: faker.random.number(5)
+    },
+    pictures: urlGrab(),
+    helpful: {
+      yes: faker.random.number(200),
+      no: faker.random.number(50)
+    }
+  })
+  arr.push(fakerTest)
 }
 
-console.log(seed(6));
+let dataGen = () => {
+  for (var i = 0; i < 400; i++) {
+    seed()
+  }
+  arr.join('\r\n')
+  fs.writeFile(`./testdata/test.txt`, arr, (err) => {
+    if (err) {
+      return `uh oh ${err}`
+    } else {
+      console.log('saved!')
+    }
+  })
+}
+dataGen();
