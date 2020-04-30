@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 
-mongoose.connect('mongodb://localhost/reviews', { useNewUrlParser: true, useUnifiedTopology
+mongoose.connect('mongodb://localhost/sauron', { useNewUrlParser: true, useUnifiedTopology
 : true });
 
 let reviewSchema = new mongoose.Schema({
@@ -17,12 +17,11 @@ let reviewSchema = new mongoose.Schema({
     recommendation: Boolean,
     purchased: String,
     time: Number,
-    difficulty: {type: Number, min: 1, max: 5},
-    value: {type: Number, min: 1, max: 5},
-    rating: {type: Number, min: 1, max: 5}
+    difficulty: {type: Number, min: 0, max: 5},
+    value: {type: Number, min: 0, max: 5},
+    rating: {type: Number, min: 0, max: 5}
   },
   pictures: {
-    contains: Boolean,
     pic1: String,
     pic2: String,
     pic3: String,
@@ -37,6 +36,19 @@ let reviewSchema = new mongoose.Schema({
 
 let Review = mongoose.model('Review', reviewSchema);
 
+let save = (data) => {
+  data.save((err, doc) => {
+    if (err) {
+      console.log('Save Error! ', err);
+      return;
+    } else {
+      console.log('Save Success!');
+      return;
+    }
+  })
+}
+
 module.exports = {
-  Review
+  Review,
+  save
 }

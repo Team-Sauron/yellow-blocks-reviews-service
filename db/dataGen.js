@@ -53,7 +53,6 @@ let urlGrab = function() {
   return url;
 }
 
-let arr = [];
 let seed = function() {
 
   let fakerTest = new db.Review({
@@ -79,20 +78,13 @@ let seed = function() {
       no: faker.random.number(50)
     }
   })
-  arr.push(fakerTest)
+  return fakerTest;
 }
 
 let dataGen = (num = 400) => {
   for (var i = 0; i < num; i++) {
-    seed()
+    let data = seed();
+    db.save(data);
   }
-  arr.join('\r\n')
-  fs.writeFile(`./testdata/test.txt`, arr, (err) => {
-    if (err) {
-      return `uh oh ${err}`
-    } else {
-      console.log('saved!')
-    }
-  })
 }
 dataGen();
