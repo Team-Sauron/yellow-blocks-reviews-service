@@ -3,6 +3,8 @@ const faker = require('faker');
 
 mongoose.connect('mongodb://localhost/sauron', { useNewUrlParser: true, useUnifiedTopology
 : true });
+mongoose.set('useCreateIndex', true);
+
 
 let reviewSchema = new mongoose.Schema({
   userdata: {
@@ -36,7 +38,7 @@ let reviewSchema = new mongoose.Schema({
 
 let Review = mongoose.model('Review', reviewSchema);
 
-let save = (data) => {
+let saveReviews = (data) => {
   data.save((err, doc) => {
     if (err) {
       console.log('Save Error! ', err);
@@ -46,9 +48,14 @@ let save = (data) => {
       return;
     }
   })
+};
+
+let getReviews = (number) => {
+  return Review.find().limit(4).skip(number)
 }
 
 module.exports = {
   Review,
-  save
+  saveReviews,
+  getReviews
 }
