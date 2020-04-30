@@ -51,7 +51,7 @@ let saveReviews = (data) => {
 };
 
 let getReviews = (number) => {
-  return Review.find().limit(5).skip(number)
+  return Review.find().limit(4).skip(number)
 }
 
 module.exports = {
