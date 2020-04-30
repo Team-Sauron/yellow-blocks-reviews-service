@@ -38,17 +38,16 @@ let urlGrab = function() {
   let pic = 1;
   let url = {};
 
-
-  if (hasPics && start < urlArr.length -1) {
+  if (hasPics && start < urlArr.length) {
     for (var j = pic; j <= limit; j++) {
-      for (var i = start; i < urlArr.length -1; i++) {
+      for (var i = start; i < urlArr.length; i++) {
         url[`pic${pic}`] = urlArr[i];
         break;
       }
       start++;
       pic++;
     }
-  } else if (start === urlArr.length -1) {
+  } else if (start === urlArr.length|| start >= urlArr.length) {
     start = 0;
   }
   return url;
