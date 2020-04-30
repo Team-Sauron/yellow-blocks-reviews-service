@@ -37,19 +37,12 @@ let reviewSchema = new mongoose.Schema({
 let Review = mongoose.model('Review', reviewSchema);
 
 let save = (data) => {
-  // console.log('data: ', data);
-  // let review = new Review({
-  //   userdata: data.userdata,
-  //   review: data.review,
-  //   pictures: data.pictures,
-  //   helpful: data.helpful
-  // })
   data.save((err, doc) => {
     if (err) {
       console.log('Save Error! ', err);
       return;
     } else {
-      console.log('Save Success! ', doc);
+      console.log('Save Success!');
       return;
     }
   })
