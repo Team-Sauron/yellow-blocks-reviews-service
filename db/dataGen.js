@@ -82,8 +82,8 @@ let seed = function() {
   arr.push(fakerTest)
 }
 
-let dataGen = () => {
-  for (var i = 0; i < 400; i++) {
+let dataGen = (num = 400) => {
+  for (var i = 0; i < num; i++) {
     seed()
   }
   arr.join('\r\n')
