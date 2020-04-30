@@ -3,6 +3,8 @@ const faker = require('faker');
 
 mongoose.connect('mongodb://localhost/sauron', { useNewUrlParser: true, useUnifiedTopology
 : true });
+mongoose.set('useCreateIndex', true);
+
 
 let reviewSchema = new mongoose.Schema({
   userdata: {
