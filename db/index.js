@@ -1,16 +1,14 @@
 const mongoose = require('mongoose');
-const faker = require('faker');
 
-mongoose.connect('mongodb://localhost/sauron', { useNewUrlParser: true, useUnifiedTopology
-: true });
+mongoose.connect('mongodb://localhost/sauron', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 
-let reviewSchema = new mongoose.Schema({
+const reviewSchema = new mongoose.Schema({
   userdata: {
-    name: {type: String, unique: true},
+    name: { type: String, unique: true },
     age: Number,
-    experience: String
+    experience: String,
   },
   review: {
     title: String,
@@ -19,9 +17,9 @@ let reviewSchema = new mongoose.Schema({
     recommendation: Boolean,
     purchased: String,
     time: Number,
-    difficulty: {type: Number, min: 0, max: 5},
-    value: {type: Number, min: 0, max: 5},
-    rating: {type: Number, min: 0, max: 5}
+    difficulty: { type: Number, min: 0, max: 5 },
+    value: { type: Number, min: 0, max: 5 },
+    rating: { type: Number, min: 0, max: 5 },
   },
   pictures: {
     pic1: String,
@@ -32,30 +30,25 @@ let reviewSchema = new mongoose.Schema({
   },
   helpful: {
     yes: Number,
-    no: Number
-  }
+    no: Number,
+  },
 });
 
-let Review = mongoose.model('Review', reviewSchema);
+const Review = mongoose.model('Review', reviewSchema);
 
-let saveReviews = (data) => {
+const saveReviews = (data) => {
   data.save((err, doc) => {
     if (err) {
-      console.log('Save Error! ', err);
-      return;
-    } else {
-      console.log('Save Success!');
-      return;
+      return (err, null);
     }
-  })
+    return (null, doc);
+  });
 };
 
-let getReviews = (number) => {
-  return Review.find().limit(4).skip(number)
-}
+const getReviews = (number) => Review.find().limit(4).skip(number);
 
 module.exports = {
   Review,
   saveReviews,
-  getReviews
-}
+  getReviews,
+};
