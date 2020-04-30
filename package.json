@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "build:dev": "webpack -d --watch --watch-poll",
+    "build:dev": "webpack -d --watch",
     "seed:db": "node db/dataGen.js",
     "start": "nodemon server"
   },

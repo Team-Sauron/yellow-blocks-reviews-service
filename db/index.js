@@ -38,7 +38,7 @@ let reviewSchema = new mongoose.Schema({
 
 let Review = mongoose.model('Review', reviewSchema);
 
-let save = (data) => {
+let saveReviews = (data) => {
   data.save((err, doc) => {
     if (err) {
       console.log('Save Error! ', err);
@@ -48,9 +48,14 @@ let save = (data) => {
       return;
     }
   })
+};
+
+let getReviews = (number) => {
+  return Review.find().limit(5).skip(number)
 }
 
 module.exports = {
   Review,
-  save
+  saveReviews,
+  getReviews
 }

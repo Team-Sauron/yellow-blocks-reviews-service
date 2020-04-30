@@ -55,7 +55,7 @@ let urlGrab = function() {
 
 let seed = function() {
 
-  let fakerTest = new db.Review({
+  let reviewData = new db.Review({
     userdata: {
       name: faker.internet.userName(),
       age: faker.random.number({ min: 5, max: 75 }),
@@ -78,13 +78,13 @@ let seed = function() {
       no: faker.random.number(50)
     }
   })
-  return fakerTest;
+  return reviewData;
 }
 
 let dataGen = (num = 400) => {
   for (var i = 0; i < num; i++) {
     let data = seed();
-    db.save(data);
+    db.saveReviews(data);
   }
 }
-dataGen();
+dataGen(20);
