@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.get(`/api/reviews/:id`, (req,res) => {
   let id = path.basename(req.url);
-  let reviewsNum = id * 5;
+  let reviewsNum = id * 4;
 
   return db.getReviews(reviewsNum)
     .then((results) => {
@@ -21,7 +21,7 @@ app.get(`/api/reviews/:id`, (req,res) => {
       console.log('Get ERROR! ', err)
       res.end()
     })
-})
+});
 
 
 app.listen(port, () => {

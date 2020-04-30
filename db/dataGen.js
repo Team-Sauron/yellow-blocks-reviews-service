@@ -87,4 +87,4 @@ let dataGen = (num = 400) => {
     db.saveReviews(data);
   }
 }
-dataGen(20);
+dataGen();
