@@ -22,6 +22,7 @@ let reviewSchema = new mongoose.Schema({
     rating: {type: Number, min: 1, max: 5}
   },
   pictures: {
+    contains: Boolean,
     pic1: String,
     pic2: String,
     pic3: String,
@@ -36,34 +37,6 @@ let reviewSchema = new mongoose.Schema({
 
 let Review = mongoose.model('Review', reviewSchema);
 
-// let fakerTest = new Review({
-//   userdata: {
-//     name: faker.,
-//     age: Number,
-//     experience: String
-//   },
-//   review: {
-//     title: String,
-//     text: String,
-//     published: Date,
-//     recommendation: Boolean,
-//     purchased: String,
-//     time: Number,
-//     difficulty: {type: Number, min: 1, max: 5},
-//     value: {type: Number, min: 1, max: 5},
-//     rating: {type: Number, min: 1, max: 5}
-//   },
-//   pictures: {
-//     pic1: String,
-//     pic2: String,
-//     pic3: String,
-//     pic4: String,
-//     pic5: String,
-//   },
-//   helpful: {
-//     yes: Number,
-//     no: Number
-//   }
-// })
-
-console.log(faker.name.findName())
+module.exports = {
+  Review
+}
