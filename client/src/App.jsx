@@ -2,10 +2,18 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Accordian = styled.div`
-opacity: ${props => (props.isOpen ? "1" : "0")};
-max-height: ${props => (props.isOpen ? "100%" : "0")};
-padding: ${props => (props.isOpen ? "25px" : "0 25px")};
-transition: all 0.2s;
+  opacity: ${props => (props.isOpen ? '1' : '0')};
+  max-height: ${props => (props.isOpen ? '100%' : '0')};
+  padding: ${props => (props.isOpen ? '25px' : '0 25px')};
+  transition: all 0.2s;
+`;
+
+const Title = styled.h3`
+  border-top: 1px solid gray;
+  background: whitesmoke;
+  padding: 20px 0 20px 25px;
+  cursor: pointer;
+  content: ${props => (props.isOpen ? '-' : '+')};
 `;
 
 class App extends Component {
@@ -28,7 +36,8 @@ class App extends Component {
     return (
       <div>
         <div>
-          <button onClick={this.toggleAccordian}>click</button>
+          <Title onClick={this.toggleAccordian}>Customer Reviews
+          </Title>
           <Accordian isOpen={this.state.isOpen}>
             <p>Overall Rating</p>
             <p>Review</p>
@@ -36,7 +45,6 @@ class App extends Component {
             <p>Review</p>
             <p>Review</p>
           </Accordian>
-          hello from react
         </div>
       </div>
     )
