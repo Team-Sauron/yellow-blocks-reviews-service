@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const express = require('express');
 
 const app = express();
@@ -11,8 +10,11 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 
 app.get('/api/reviews/:id', (req, res) => {
-  const id = path.basename(req.url);
-  const reviewsNum = id * 4;
+  let id = Number(path.basename(req.url));
+  if (id < 1 || id > 100) {
+    id = 1;
+  }
+  const reviewsNum = id * 4 - 4;
 
   return db.getReviews(reviewsNum)
     .then((results) => {
@@ -20,7 +22,7 @@ app.get('/api/reviews/:id', (req, res) => {
       res.end();
     })
     .catch((err) => {
-      console.log('Get ERROR! ', err);
+      res.send(`Got an error: ${err}`);
       res.end();
     });
 });
