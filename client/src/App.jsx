@@ -6,6 +6,9 @@ const Accordian = styled.div`
   max-height: ${props => (props.isOpen ? '100%' : '0')};
   padding: ${props => (props.isOpen ? '25px' : '0 25px')};
   transition: all 0.2s;
+  p {
+    font-family: Courier, 'Lucida Console', monospace;
+  }
 `;
 
 const Title = styled.h3`
@@ -14,6 +17,7 @@ const Title = styled.h3`
   padding: 20px 0 20px 25px;
   cursor: pointer;
   content: ${props => (props.isOpen ? '-' : '+')};
+  font-family: Courier, monospace;
 `;
 
 class App extends Component {
