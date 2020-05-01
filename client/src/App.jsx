@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
+import Ratings from './Ratings.jsx';
+
 const Accordian = styled.div`
   opacity: ${props => (props.isOpen ? '1' : '0')};
   max-height: ${props => (props.isOpen ? '100%' : '0')};
@@ -81,36 +83,10 @@ class App extends Component {
           <Title onClick={this.toggleAccordian}>Customer Reviews
           </Title>
           <Accordian isOpen={this.state.isOpen}>
-            <div>
-              <div className="overallRating">
-              Overall Rating: {this.state.average.rating}
-              </div>
-              <div>
-              Recommended: {`${this.state.average.recommendation} %`}
-              </div>
-              <div className="Rating">
-                Rating
-                <div>
-                  5 stars: {this.state.stars.five}
-                  4 stars: {this.state.stars.four}
-                  3 stars: {this.state.stars.three}
-                  2 stars: {this.state.stars.two}
-                  1 stars: {this.state.stars.one}
-                </div>
-              </div>
-              <div className="overallExp">
-                Overall Experience
-                <div>
-                  Play: {this.state.average.play}
-                </div>
-                <div>
-                  Difficulty: {this.state.average.difficulty}
-                </div>
-                <div>
-                  Value: {this.state.average.value}
-                </div>
-              </div>
-            </div>
+            <Ratings
+              rating={this.state.average}
+              stars={this.state.stars}
+            />
           </Accordian>
         </div>
       </div>
