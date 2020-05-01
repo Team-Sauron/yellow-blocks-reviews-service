@@ -65,9 +65,10 @@ const seed = () => {
       recommendation: faker.random.boolean(),
       purchased: faker.hacker.noun(),
       time: faker.random.number(30),
-      difficulty: faker.random.number(5),
-      value: faker.random.number(5),
-      rating: faker.random.number(5),
+      play: faker.random.number({ min: 1, max: 5 }),
+      difficulty: faker.random.number({ min: 1, max: 5 }),
+      value: faker.random.number({ min: 1, max: 5 }),
+      rating: faker.random.number({ min: 1, max: 5 }),
     },
     pictures: urlGrab(),
     helpful: {
