@@ -11,7 +11,7 @@
     "build": "webpack --config webpack.config.js",
     "build:dev": "webpack -d --watch",
     "seed:db": "node db/dataGen.js",
-    "start": "nodemon server"
+    "start": "nodemon server --i client/ -i public/"
   },
   "dependencies": {
     "axios": "^0.19.2",

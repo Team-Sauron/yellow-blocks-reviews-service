@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
+
+import Ratings from './Ratings.jsx';
+import ReviewsList from './ReviewsList.jsx';
 
 const Accordian = styled.div`
   opacity: ${props => (props.isOpen ? '1' : '0')};
@@ -12,7 +16,7 @@ const Accordian = styled.div`
 `;
 
 const Title = styled.h3`
-  border-top: 1px solid gray;
+  border-top: 1px solid rgb(205, 205, 177);
   background: whitesmoke;
   padding: 20px 0 20px 25px;
   cursor: pointer;
@@ -26,10 +30,48 @@ class App extends Component {
 
     this.state = {
       isOpen: false,
+      pageID: 1,
+      reviews: [],
+      average: [],
+      stars: {}
     }
 
     this.toggleAccordian = this.toggleAccordian.bind(this);
+    this.getReviews = this.getReviews.bind(this);
+    this.getAverage = this.getAverage.bind(this);
   }
+  componentDidMount() {
+    this.getReviews();
+    this.getAverage();
+  }
+
+  getReviews() {
+    let id = window.location.href;
+    id = id.slice(id.indexOf('=') + 1)
+    axios.get(`/api/reviews/${id}`)
+      .then((reviews) => {
+        this.setState({
+          reviews: reviews.data,
+          pageID: this.state.pageID +=1
+        })
+      })
+      .catch((err) => {
+        return console.log('Fetch Reviews Error', err)
+      })
+  }
+  getAverage() {
+    axios.get('/api/average')
+      .then((reviews) => {
+        this.setState({
+          average: reviews.data[0],
+          stars: reviews.data[1]
+        })
+      })
+      .catch((err) => {
+        return err
+      })
+  }
+
   toggleAccordian() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -43,11 +85,13 @@ class App extends Component {
           <Title onClick={this.toggleAccordian}>Customer Reviews
           </Title>
           <Accordian isOpen={this.state.isOpen}>
-            <p>Overall Rating</p>
-            <p>Review</p>
-            <p>Review</p>
-            <p>Review</p>
-            <p>Review</p>
+            <Ratings
+              rating={this.state.average}
+              stars={this.state.stars}
+            />
+            <ReviewsList
+              reviews={this.state.reviews}
+            />
           </Accordian>
         </div>
       </div>
