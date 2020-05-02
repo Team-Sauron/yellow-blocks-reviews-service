@@ -46,7 +46,8 @@ class App extends Component {
   }
 
   getReviews() {
-    const id = this.state.pageID;
+    let id = window.location.href;
+    id = id.slice(id.indexOf('=') + 1)
     axios.get(`/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
