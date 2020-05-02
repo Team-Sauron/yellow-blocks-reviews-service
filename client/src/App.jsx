@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import Ratings from './Ratings.jsx';
+import Reviews from './Reviews.jsx';
 
 const Accordian = styled.div`
   opacity: ${props => (props.isOpen ? '1' : '0')};
@@ -87,6 +88,7 @@ class App extends Component {
               rating={this.state.average}
               stars={this.state.stars}
             />
+            <Reviews />
           </Accordian>
         </div>
       </div>

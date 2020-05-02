@@ -5,17 +5,26 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
+  border-bottom: 1px solid rgb(205, 205, 177);
 `;
+
+const underline = {
+  borderBottom: '1px solid rgb(205, 205, 177)'
+};
 
 const Ratings = (props) => (
   <div>
-    <div className="overallRating">
-    Overall Rating: {props.rating.rating}
-    </div>
-    <div>
-    Recommended: {`${props.rating.recommendation} %`}
+
+    <div className="overallRating" style={underline}>
+      <div>
+        Overall Rating: {props.rating.rating}
+      </div>
+      <div>
+        Recommended: {`${props.rating.recommendation} %`}
+      </div>
     </div>
     <br />
+
     <Grid>
       <div className="Rating">
         Rating
@@ -27,6 +36,7 @@ const Ratings = (props) => (
           <p>1 stars: {props.stars.one}</p>
         </div>
       </div>
+
       <div className="overallExp">
         Overall Experience
         <div>
@@ -41,6 +51,7 @@ const Ratings = (props) => (
         </div>
       </div>
     </Grid>
+
   </div>
 )
 
