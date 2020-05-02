@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-import Ratings from './Ratings.jsx';
-import ReviewsList from './ReviewsList.jsx';
+import Ratings from './Ratings';
+import ReviewsList from './ReviewsList';
 
 const Accordian = styled.div`
-  opacity: ${props => (props.isOpen ? '1' : '0')};
-  max-height: ${props => (props.isOpen ? '100%' : '0')};
-  padding: ${props => (props.isOpen ? '25px' : '0 25px')};
+  opacity: ${(props) => (props.isOpen ? '1' : '0')};
+  max-height: ${(props) => (props.isOpen ? '100%' : '0')};
+  padding: ${(props) => (props.isOpen ? '25px' : '0 25px')};
   transition: all 0.2s;
   p {
     font-family: Courier, 'Lucida Console', monospace;
@@ -20,7 +20,7 @@ const Title = styled.h3`
   background: whitesmoke;
   padding: 20px 0 20px 25px;
   cursor: pointer;
-  content: ${props => (props.isOpen ? '-' : '+')};
+  content: ${(props) => (props.isOpen ? '-' : '+')};
   font-family: Courier, monospace;
 `;
 
@@ -30,16 +30,16 @@ class App extends Component {
 
     this.state = {
       isOpen: false,
-      pageID: 1,
       reviews: [],
       average: [],
-      stars: {}
-    }
+      stars: {},
+    };
 
     this.toggleAccordian = this.toggleAccordian.bind(this);
     this.getReviews = this.getReviews.bind(this);
     this.getAverage = this.getAverage.bind(this);
   }
+
   componentDidMount() {
     this.getReviews();
     this.getAverage();
@@ -47,55 +47,55 @@ class App extends Component {
 
   getReviews() {
     let id = window.location.href;
-    id = id.slice(id.indexOf('=') + 1)
+    id = id.slice(id.indexOf('=') + 1);
     axios.get(`/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
           reviews: reviews.data,
-          pageID: this.state.pageID +=1
-        })
+        });
       })
-      .catch((err) => {
-        return console.log('Fetch Reviews Error', err)
-      })
+      .catch((err) => console.log('Fetch Reviews Error', err));
   }
+
   getAverage() {
     axios.get('/api/average')
       .then((reviews) => {
         this.setState({
           average: reviews.data[0],
-          stars: reviews.data[1]
-        })
+          stars: reviews.data[1],
+        });
       })
-      .catch((err) => {
-        return err
-      })
+      .catch((err) => err);
   }
 
   toggleAccordian() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
+    this.setState((prevState) => ({ isOpen: !prevState }));
   }
 
   render() {
+    const { isOpen } = this.state;
+    const { average } = this.state;
+    const { stars } = this.state;
+    const { reviews } = this.state;
+
     return (
       <div>
         <div>
-          <Title onClick={this.toggleAccordian}>Customer Reviews
+          <Title onClick={this.toggleAccordian}>
+            Customer Reviews
           </Title>
-          <Accordian isOpen={this.state.isOpen}>
+          <Accordian isOpen={isOpen}>
             <Ratings
-              rating={this.state.average}
-              stars={this.state.stars}
+              rating={average}
+              stars={stars}
             />
             <ReviewsList
-              reviews={this.state.reviews}
+              reviews={reviews}
             />
           </Accordian>
         </div>
       </div>
-    )
+    );
   }
 }
 
