@@ -1,27 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ReviewHeader = (props) => (
+const ReviewHeader = ({ review, user }) => (
   <div>
     <div>
       <b>Published: </b>
-      {props.review.published.slice(0, 10)}
+      {review.published.slice(0, 10)}
     </div>
 
     <div>
       <b>Rating: </b>
-      {props.review.rating}
+      {review.rating}
     </div>
 
     <div>
       <b>Title: </b>
-      {props.review.title}
+      {review.title}
     </div>
 
     <div>
-      {props.user.name} | {props.user.age}
+      {user.name}
+      {' '}
+      |
+      {' '}
+      {user.age}
     </div>
   </div>
-)
+);
 
 export default ReviewHeader;

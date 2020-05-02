@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ReviewHeading from './ReviewHeading.jsx';
+import ReviewHeading from './ReviewHeading';
 
 const Grid = styled.div`
   display: grid;
@@ -13,64 +13,68 @@ const Grid = styled.div`
   }
 `;
 
-// const main = {
-//   gridArea: 'main',
-//   whiteSpace: 'unset'
-// }
-// const side = {
-//   gridArea: 'footer'
-// }
-
 const underline = {
-  borderBottom: '1px solid rgb(205, 205, 177)'
+  borderBottom: '1px solid rgb(205, 205, 177)',
 };
 
-const Review = (props) => (
+const Review = ({
+  review, thumbs, user,
+}) => (
   <div style={underline}>
     <div>
-      <ReviewHeading review={props.review} user={props.user}/>
+      <ReviewHeading review={review} user={user} />
     </div>
 
     <Grid>
       <div className="rate">
-        <div><b>Recommendation: </b>
-          {props.review.recommendation.toString()}
+        <div>
+          <b>Recommendation: </b>
+          {review.recommendation.toString()}
         </div>
-        <div><b>Purchased: </b>
-          {props.review.purchased}
+        <div>
+          <b>Purchased: </b>
+          {review.purchased}
         </div>
-        <div><b>Text: </b>
-          {props.review.text}
+        <div>
+          <b>Text: </b>
+          {review.text}
         </div>
 
-        <div><b>Thumbs Up: </b>
-          {props.thumbs.yes}
+        <div>
+          <b>Thumbs Up: </b>
+          {thumbs.yes}
         </div>
-        <div><b>Thumbs Down: </b>
-          {props.thumbs.no}
+        <div>
+          <b>Thumbs Down: </b>
+          {thumbs.no}
         </div>
       </div>
 
       <div className="side">
-        <div><b>Difficulty: </b>
-          {props.review.difficulty}
+        <div>
+          <b>Difficulty: </b>
+          {review.difficulty}
         </div>
-        <div><b>Value: </b>
-          {props.review.value}
+        <div>
+          <b>Value: </b>
+          {review.value}
         </div>
-        <div><b>Build Time: </b>
-          {props.review.time}
+        <div>
+          <b>Build Time: </b>
+          {review.time}
         </div>
-        <div><b>Value: </b>
-          {props.review.value}
+        <div>
+          <b>Value: </b>
+          {review.value}
         </div>
-        <div><b>Building Experience: </b>
-          {props.user.experience}
+        <div>
+          <b>Building Experience: </b>
+          {user.experience}
         </div>
       </div>
 
     </Grid>
   </div>
-)
+);
 
 export default Review;

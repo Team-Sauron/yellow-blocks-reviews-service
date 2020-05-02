@@ -69,15 +69,13 @@ class App extends Component {
   }
 
   toggleAccordian() {
-    this.setState((prevState) => ({ isOpen: !prevState }));
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   }
 
   render() {
-    const { isOpen } = this.state;
-    const { average } = this.state;
-    const { stars } = this.state;
-    const { reviews } = this.state;
-
+    const {
+      isOpen, average, stars, reviews,
+    } = this.state;
     return (
       <div>
         <div>

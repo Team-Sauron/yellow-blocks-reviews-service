@@ -9,18 +9,22 @@ const Grid = styled.div`
 `;
 
 const underline = {
-  borderBottom: '1px solid rgb(205, 205, 177)'
+  borderBottom: '1px solid rgb(205, 205, 177)',
 };
 
-const Ratings = (props) => (
+const Ratings = ({ rating, stars }) => (
   <div>
 
     <div className="overallRating" style={underline}>
       <div>
-        Overall Rating: {props.rating.rating}
+        Overall Rating:
+        {' '}
+        {rating.rating}
       </div>
       <div>
-        Recommended: {`${props.rating.recommendation} %`}
+        Recommended:
+        {' '}
+        {`${rating.recommendation} %`}
       </div>
     </div>
     <br />
@@ -29,11 +33,31 @@ const Ratings = (props) => (
       <div className="Rating">
         Rating
         <div>
-          <p>5 stars: {props.stars.five}</p>
-          <p>4 stars: {props.stars.four}</p>
-          <p>3 stars: {props.stars.three}</p>
-          <p>2 stars: {props.stars.two}</p>
-          <p>1 stars: {props.stars.one}</p>
+          <p>
+            5 stars:
+            {' '}
+            {stars.five}
+          </p>
+          <p>
+            4 stars:
+            {' '}
+            {stars.four}
+          </p>
+          <p>
+            3 stars:
+            {' '}
+            {stars.three}
+          </p>
+          <p>
+            2 stars:
+            {' '}
+            {stars.two}
+          </p>
+          <p>
+            1 stars:
+            {' '}
+            {stars.one}
+          </p>
         </div>
       </div>
 
@@ -41,18 +65,24 @@ const Ratings = (props) => (
         Overall Experience
         <div>
           <br />
-          Play: {props.rating.play}
+          Play:
+          {' '}
+          {rating.play}
         </div>
         <div>
-          Difficulty: {props.rating.difficulty}
+          Difficulty:
+          {' '}
+          {rating.difficulty}
         </div>
         <div>
-          Value: {props.rating.value}
+          Value:
+          {' '}
+          {rating.value}
         </div>
       </div>
     </Grid>
 
   </div>
-)
+);
 
 export default Ratings;
