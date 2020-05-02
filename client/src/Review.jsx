@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReviewHeading from './ReviewHeading.jsx';
 
 const Grid = styled.div`
   display: grid;
@@ -26,23 +27,8 @@ const underline = {
 
 const Review = (props) => (
   <div style={underline}>
-    <div><b>Published: </b>
-      {props.review.published.slice(0, 10)}
-    </div>
-    <div><b>Rating: </b>
-      {props.review.rating}
-    </div>
-    <div><b>Title: </b>
-      {props.review.title}
-    </div>
-
     <div>
-      <div>
-        {props.user.name}
-      </div>
-      <div>
-        {props.user.age}
-      </div>
+      <ReviewHeading review={props.review} user={props.user}/>
     </div>
 
     <Grid>
