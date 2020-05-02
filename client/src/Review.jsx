@@ -17,9 +17,7 @@ const underline = {
   borderBottom: '1px solid rgb(205, 205, 177)',
 };
 
-const Review = ({
-  review, thumbs, user,
-}) => (
+const Review = ({ review, thumbs, user }) => (
   <div style={underline}>
     <div>
       <ReviewHeading review={review} user={user} />

@@ -22,9 +22,7 @@ const Ratings = ({ rating, stars }) => (
         {rating.rating}
       </div>
       <div>
-        Recommended:
-        {' '}
-        {`${rating.recommendation} %`}
+        {`${rating.recommendation}% would recommend this product.`}
       </div>
     </div>
     <br />
@@ -36,49 +34,61 @@ const Ratings = ({ rating, stars }) => (
           <p>
             5 stars:
             {' '}
-            {stars.five}
+            {`${stars.five} Reviews`}
           </p>
           <p>
             4 stars:
             {' '}
-            {stars.four}
+            {`${stars.four} Reviews`}
           </p>
           <p>
             3 stars:
             {' '}
-            {stars.three}
+            {`${stars.three} Reviews`}
           </p>
           <p>
             2 stars:
             {' '}
-            {stars.two}
+            {`${stars.two} Reviews`}
           </p>
           <p>
             1 stars:
             {' '}
-            {stars.one}
+            {`${stars.one} Reviews`}
           </p>
         </div>
       </div>
 
       <div className="overallExp">
         Overall Experience
+        <br />
         <div>
-          <br />
-          Play:
-          {' '}
-          {rating.play}
+          <div>
+            Play Experience
+          </div>
+          <div>
+            {rating.play}
+          </div>
         </div>
+
         <div>
-          Difficulty:
-          {' '}
-          {rating.difficulty}
+          <div>
+            Level of Difficulty
+          </div>
+          <div>
+            {rating.difficulty}
+          </div>
         </div>
+
         <div>
-          Value:
-          {' '}
-          {rating.value}
+          <div>
+            Value for Money
+          </div>
+          <div>
+            {rating.value}
+          </div>
         </div>
+
       </div>
     </Grid>
 
