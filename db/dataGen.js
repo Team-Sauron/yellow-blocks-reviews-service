@@ -71,6 +71,17 @@ const seed = () => {
       rating: faker.random.number({ min: 1, max: 5 }),
     },
     pictures: urlGrab(),
+    overall: {
+      recommendation: faker.random.number({ min: 1, max: 30 }),
+      play: faker.random.number({ min: 1, max: 5 }),
+      difficulty: faker.random.number({ min: 1, max: 5 }),
+      value: faker.random.number({ min: 1, max: 5 }),
+      five: faker.random.number(30),
+      four: faker.random.number(30),
+      three: faker.random.number(30),
+      two: faker.random.number(30),
+      one: faker.random.number(30),
+    },
     helpful: {
       yes: faker.random.number(200),
       no: faker.random.number(50),

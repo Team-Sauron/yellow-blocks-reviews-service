@@ -29,6 +29,17 @@ const reviewSchema = new mongoose.Schema({
     pic4: String,
     pic5: String,
   },
+  overall: {
+    recommendation: Number,
+    five: Number,
+    four: Number,
+    three: Number,
+    two: Number,
+    one: Number,
+    play: { type: Number, min: 1, max: 5 },
+    difficulty: { type: Number, min: 1, max: 5 },
+    value: { type: Number, min: 1, max: 5 },
+  },
   helpful: {
     yes: Number,
     no: Number,
@@ -48,7 +59,7 @@ const saveReviews = (data) => {
 
 const getReviews = (number) => Review.find().limit(4).skip(number);
 
-const getAverage = () => Review.find({}, 'review');
+const getAverage = (number) => Review.find({}, 'overall').limit(4).skip(number);
 
 module.exports = {
   Review,

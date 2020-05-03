@@ -17,7 +17,7 @@ const Ratings = ({ rating, stars }) => (
 
     <div className="overallRating" style={underline}>
       <div>
-        Overall Rating:
+        Overall Rating
         {' '}
         {rating.rating}
       </div>
@@ -33,7 +33,6 @@ const Ratings = ({ rating, stars }) => (
         <div>
           <p>
             5 stars:
-            {' '}
             {`${stars.five} Reviews`}
           </p>
           <p>

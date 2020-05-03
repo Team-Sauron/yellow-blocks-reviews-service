@@ -46,7 +46,6 @@ class App extends Component {
 
   componentDidMount() {
     this.getReviews();
-    this.getAverage();
   }
 
   getReviews() {
@@ -55,21 +54,11 @@ class App extends Component {
     axios.get(`/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
-          reviews: reviews.data,
+          average: reviews.data[0],
+          reviews: reviews.data[1],
         });
       })
       .catch((err) => console.log('Fetch Reviews Error', err));
-  }
-
-  getAverage() {
-    axios.get('/api/average')
-      .then((reviews) => {
-        this.setState({
-          average: reviews.data[0],
-          stars: reviews.data[1],
-        });
-      })
-      .catch((err) => err);
   }
 
   toggleAccordian() {

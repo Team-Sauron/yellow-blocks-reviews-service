@@ -12,13 +12,9 @@ app.use(express.json());
 const average = (arr) => {
   const count = {
     recommendation: 0,
-    rating: 0,
     play: 0,
     difficulty: 0,
     value: 0,
-    percentage: 0,
-  };
-  const stars = {
     one: 0,
     two: 0,
     three: 0,
@@ -26,35 +22,20 @@ const average = (arr) => {
     five: 0,
   };
   arr.forEach((item) => {
-    if (item.review.recommendation) {
-      count.recommendation += 1;
-    }
-    if (item.review.rating === 1) {
-      stars.one += 1;
-    }
-    if (item.review.rating === 2) {
-      stars.two += 1;
-    }
-    if (item.review.rating === 3) {
-      stars.three += 1;
-    }
-    if (item.review.rating === 4) {
-      stars.four += 1;
-    }
-    if (item.review.rating === 5) {
-      stars.five += 1;
-    }
-    count.rating += item.review.rating;
-    count.play += item.review.play;
-    count.difficulty += item.review.difficulty;
-    count.value += item.review.value;
+    count.recommendation += item.overall.recommendation;
+    count.play += item.overall.play;
+    count.difficulty += item.overall.difficulty;
+    count.value += item.overall.value;
+
+    count.one += item.overall.one;
+    count.two += item.overall.two;
+    count.three += item.overall.three;
+    count.four += item.overall.four;
+    count.five += item.overall.five;
   });
-  count.recommendation /= 400 / 100;
-  count.rating /= 400;
-  count.play /= 400;
-  count.difficulty /= 400;
-  count.value /= 400;
-  return [count, stars];
+  count.total = count.one + count.two + count.three + count.four + count.five;
+  count.percentage = Math.round((count.recommendation / count.total) * 100);
+  return count;
 };
 
 app.get('/api/reviews/:id', (req, res) => {
@@ -64,29 +45,38 @@ app.get('/api/reviews/:id', (req, res) => {
   }
   const reviewsNum = id * 4 - 4;
 
-  return db.getReviews(reviewsNum)
-    .then((results) => {
-      res.send(results);
+  const resultArr = [];
+
+  return db.getAverage(reviewsNum)
+    .then((overall) => average(overall))
+    .then((total) => {
+      resultArr.push(total);
     })
-    .catch((err) => {
-      res.send(err);
-    })
-    .finally(() => {
-      res.end();
-    });
+    .then(() => db.getReviews(reviewsNum)
+      .then((results) => {
+        resultArr.push(results);
+        res.send(resultArr);
+      })
+      .catch((err) => {
+        res.send(err);
+      })
+      .finally(() => {
+        res.end();
+      }));
 });
 
-app.get('/api/average', (req, res) => db.getAverage()
-  .then((results) => average(results))
-  .then((averages) => {
-    res.send(averages);
-  })
-  .catch((err) => {
-    res.send(err);
-  })
-  .finally(() => {
-    res.end();
-  }));
+// app.get('/api/average', (req, res) => db.getAverage()
+//   .then((results) => average(results))
+//   .then((averages) => {
+//     console.log('averages: ', averages);
+//     res.send(averages);
+//   })
+//   .catch((err) => {
+//     res.send(err);
+//   })
+//   .finally(() => {
+//     res.end();
+//   }));
 
 
 app.listen(port, () => {
