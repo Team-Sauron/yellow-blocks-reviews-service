@@ -12,7 +12,6 @@ const Grid = styled.div`
     "a a a a b b b b"
     "c c c c d d d d"
     "c c c c d d d d";
-    align-items: start;
 
   div {
     padding: 0 0 10px 0;
