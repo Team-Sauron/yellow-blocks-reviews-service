@@ -36,12 +36,10 @@ class App extends Component {
       isOpen: true,
       reviews: [],
       average: [],
-      stars: {},
     };
 
     this.toggleAccordian = this.toggleAccordian.bind(this);
     this.getReviews = this.getReviews.bind(this);
-    this.getAverage = this.getAverage.bind(this);
   }
 
   componentDidMount() {
@@ -67,7 +65,7 @@ class App extends Component {
 
   render() {
     const {
-      isOpen, average, stars, reviews,
+      isOpen, average, reviews,
     } = this.state;
     return (
       <div>
@@ -78,7 +76,6 @@ class App extends Component {
           <Accordian isOpen={isOpen}>
             <Ratings
               rating={average}
-              stars={stars}
             />
             <div style={small}>
               <small>

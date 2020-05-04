@@ -33,8 +33,9 @@ const average = (arr) => {
     count.four += item.overall.four;
     count.five += item.overall.five;
   });
-  count.total = count.one + count.two + count.three + count.four + count.five;
-  count.percentage = Math.round((count.recommendation / count.total) * 100);
+  count.totalReviews = count.one + count.two + count.three + count.four + count.five;
+  count.recommendPercent = Math.round((count.recommendation / count.totalReviews) * 100);
+  count.averageRating = ((count.five * 5) + (count.four * 4) + (count.three * 3) + (count.two * 2) + (count.one * 1)) / count.totalReviews;
   return count;
 };
 

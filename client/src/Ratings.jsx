@@ -12,17 +12,18 @@ const underline = {
   borderBottom: '1px solid rgb(205, 205, 177)',
 };
 
-const Ratings = ({ rating, stars }) => (
+const Ratings = ({ rating }) => (
   <div>
 
     <div className="overallRating" style={underline}>
       <div>
         Overall Rating
-        {' '}
-        {rating.rating}
       </div>
       <div>
-        {`${rating.recommendation}% would recommend this product.`}
+        {`(${rating.totalReviews} Reviews)`}
+      </div>
+      <div>
+        {`${rating.recommendPercent}% would recommend this product.`}
       </div>
     </div>
     <br />
@@ -33,27 +34,27 @@ const Ratings = ({ rating, stars }) => (
         <div>
           <p>
             5 stars:
-            {`${stars.five} Reviews`}
+            {`${rating.five} Reviews`}
           </p>
           <p>
             4 stars:
             {' '}
-            {`${stars.four} Reviews`}
+            {`${rating.four} Reviews`}
           </p>
           <p>
             3 stars:
             {' '}
-            {`${stars.three} Reviews`}
+            {`${rating.three} Reviews`}
           </p>
           <p>
             2 stars:
             {' '}
-            {`${stars.two} Reviews`}
+            {`${rating.two} Reviews`}
           </p>
           <p>
             1 stars:
             {' '}
-            {`${stars.one} Reviews`}
+            {`${rating.one} Reviews`}
           </p>
         </div>
       </div>
