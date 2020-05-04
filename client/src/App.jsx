@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-import Ratings from './Ratings.jsx';
-import ReviewsList from './ReviewsList.jsx';
+import Ratings from './Ratings';
+import ReviewsList from './ReviewsList';
 
 const Accordian = styled.div`
-  opacity: ${props => (props.isOpen ? '1' : '0')};
-  max-height: ${props => (props.isOpen ? '100%' : '0')};
-  padding: ${props => (props.isOpen ? '25px' : '0 25px')};
+  opacity: ${(props) => (props.isOpen ? '1' : '0')};
+  max-height: ${(props) => (props.isOpen ? '100%' : '0')};
+  padding: ${(props) => (props.isOpen ? '15px' : '0 15px')};
   transition: all 0.2s;
   p {
     font-family: Courier, 'Lucida Console', monospace;
@@ -20,82 +20,77 @@ const Title = styled.h3`
   background: whitesmoke;
   padding: 20px 0 20px 25px;
   cursor: pointer;
-  content: ${props => (props.isOpen ? '-' : '+')};
+  content: ${(props) => (props.isOpen ? '-' : '+')};
   font-family: Courier, monospace;
 `;
+
+const small = {
+  fontSize: 'small',
+  margin: '12px 0 12px 0',
+};
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isOpen: false,
-      pageID: 1,
+      isOpen: true,
       reviews: [],
       average: [],
-      stars: {}
-    }
+    };
 
     this.toggleAccordian = this.toggleAccordian.bind(this);
     this.getReviews = this.getReviews.bind(this);
-    this.getAverage = this.getAverage.bind(this);
   }
+
   componentDidMount() {
     this.getReviews();
-    this.getAverage();
   }
 
   getReviews() {
     let id = window.location.href;
-    id = id.slice(id.indexOf('=') + 1)
+    id = id.slice(id.indexOf('=') + 1);
     axios.get(`/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
-          reviews: reviews.data,
-          pageID: this.state.pageID +=1
-        })
-      })
-      .catch((err) => {
-        return console.log('Fetch Reviews Error', err)
-      })
-  }
-  getAverage() {
-    axios.get('/api/average')
-      .then((reviews) => {
-        this.setState({
           average: reviews.data[0],
-          stars: reviews.data[1]
-        })
+          reviews: reviews.data[1],
+        });
       })
-      .catch((err) => {
-        return err
-      })
+      .catch((err) => console.log('Fetch Reviews Error', err));
   }
 
   toggleAccordian() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   }
 
   render() {
+    const {
+      isOpen, average, reviews,
+    } = this.state;
     return (
       <div>
         <div>
-          <Title onClick={this.toggleAccordian}>Customer Reviews
+          <Title onClick={this.toggleAccordian}>
+            Customer Reviews
           </Title>
-          <Accordian isOpen={this.state.isOpen}>
+          <Accordian isOpen={isOpen}>
             <Ratings
-              rating={this.state.average}
-              stars={this.state.stars}
+              rating={average}
             />
+            <div style={small}>
+              Please note that by submitting a helpfulness vote on a review your IP address is collected and stored by our trusted third party service provider for the sole purpose of preventing multiple entries from the same IP address. To see how to control your personal data, please see our
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{ textDecoration: 'none' }}> Privacy policy</a>
+              .
+            </div>
+            <br />
             <ReviewsList
-              reviews={this.state.reviews}
+              reviews={reviews}
             />
           </Accordian>
         </div>
       </div>
-    )
+    );
   }
 }
 
