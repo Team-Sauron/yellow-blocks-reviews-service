@@ -8,7 +8,7 @@ import ReviewsList from './ReviewsList';
 const Accordian = styled.div`
   opacity: ${(props) => (props.isOpen ? '1' : '0')};
   max-height: ${(props) => (props.isOpen ? '100%' : '0')};
-  padding: ${(props) => (props.isOpen ? '25px' : '0 25px')};
+  padding: ${(props) => (props.isOpen ? '15px' : '0 15px')};
   transition: all 0.2s;
   p {
     font-family: Courier, 'Lucida Console', monospace;

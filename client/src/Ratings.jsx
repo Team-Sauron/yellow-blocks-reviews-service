@@ -7,6 +7,10 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   border-bottom: 1px solid rgb(205, 205, 177);
+  border-radius: 10px;
+  .grid {
+    border-right: 1px solid gray;
+  }
 `;
 
 const underline = {
@@ -14,14 +18,17 @@ const underline = {
 };
 
 const ReviewBar = styled.div`
+  display: flex;
+  align-content: space-between;
+  margin: 0 50px 0 0;
   .bg {
     background-color: rgb(205, 205, 177);
     border-radius: 10px;
     width: 50%;
+    margin: 0 20px 0 20px;
   }
   .bg>div {
     background-color: rgb(255,237,0);
-    width: 50%;
     height: 20px;
     border-radius: 10px;
   }
@@ -31,7 +38,7 @@ const Ratings = ({ rating }) => (
   <div>
 
     <div className="overallRating" style={underline}>
-      <div>
+      <div style={{ fontSize: 'large' }}>
         Overall Rating
       </div>
       <div>
@@ -44,44 +51,57 @@ const Ratings = ({ rating }) => (
     <br />
 
     <Grid>
-      <div className="Rating">
+      <div className="Rating grid" style={{ fontSize: 'large' }}>
         Rating
         <div>
+          <br />
           <ReviewBar>
-
+            <div>5 stars</div>
+            <div className="bg">
+              <div style={{ width: `${(rating.five / rating.totalReviews) * 100}%` }}></div>
+            </div>
             <div>
-              5 stars
-              <div className="bg">
-                <div></div>
-              </div>
+
               {`${rating.five} Reviews`}
             </div>
-
           </ReviewBar>
-          <p>
-            4 stars:
-            {' '}
+          <br />
+          <ReviewBar>
+            4 stars
+            <div className="bg">
+              <div style={{ width: `${(rating.four / rating.totalReviews) * 100}%` }}></div>
+            </div>
             {`${rating.four} Reviews`}
-          </p>
-          <p>
-            3 stars:
-            {' '}
+          </ReviewBar>
+          <br />
+          <ReviewBar>
+            3 stars
+            <div className="bg">
+              <div style={{ width: `${(rating.three / rating.totalReviews) * 100}%` }}></div>
+            </div>
             {`${rating.three} Reviews`}
-          </p>
-          <p>
-            2 stars:
-            {' '}
+          </ReviewBar>
+          <br />
+          <ReviewBar>
+            2 stars
+            <div className="bg">
+              <div style={{ width: `${(rating.two / rating.totalReviews) * 100}%` }}></div>
+            </div>
             {`${rating.two} Reviews`}
-          </p>
-          <p>
-            1 stars:
-            {' '}
+          </ReviewBar>
+          <br />
+          <ReviewBar>
+            1 stars
+            <div className="bg">
+              <div style={{ width: `${(rating.one / rating.totalReviews) * 100}%` }}></div>
+            </div>
             {`${rating.one} Reviews`}
-          </p>
+          </ReviewBar>
+          <br />
         </div>
       </div>
 
-      <div className="overallExp">
+      <div className="overallExp" style={{ fontSize: 'large' }}>
         Overall Experience
         <br />
         <div>
