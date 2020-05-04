@@ -11,6 +11,9 @@ const Grid = styled.div`
   .grid {
     border-right: 1px solid gray;
   }
+  .exp {
+    margin: 10px 20px 0 20px;
+  }
 `;
 
 const underline = {
@@ -102,34 +105,39 @@ const Ratings = ({ rating }) => (
       </div>
 
       <div className="overallExp" style={{ fontSize: 'large' }}>
-        Overall Experience
-        <br />
-        <div>
-          <div>
-            Play Experience
-          </div>
-          <div>
-            {rating.play}
-          </div>
+        <div className="exp">
+          Overall Experience
         </div>
 
-        <div>
-          <div>
-            Level of Difficulty
-          </div>
-          <div>
-            {rating.difficulty}
-          </div>
+        <div className="exp">
+          Play Experience
         </div>
+        <ReviewBar>
+          <div className="bg">
+            <div style={{ width: `${(rating.play / 4) * 20}%` }}></div>
+          </div>
+          {`${(rating.play / 4)}`}
+        </ReviewBar>
 
-        <div>
-          <div>
-            Value for Money
-          </div>
-          <div>
-            {rating.value}
-          </div>
+        <div className="exp">
+          Level of Difficulty
         </div>
+        <ReviewBar>
+          <div className="bg">
+            <div style={{ width: `${(rating.difficulty / 4) * 20}%` }}></div>
+          </div>
+          {`${(rating.difficulty / 4)}`}
+        </ReviewBar>
+
+        <div className="exp">
+          Value for Money
+        </div>
+        <ReviewBar>
+          <div className="bg">
+            <div style={{ width: `${(rating.value / 4) * 20}%` }}></div>
+          </div>
+          {`${(rating.value / 4)}`}
+        </ReviewBar>
 
       </div>
     </Grid>
