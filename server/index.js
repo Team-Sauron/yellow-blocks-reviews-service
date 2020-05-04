@@ -8,7 +8,6 @@ const port = 3003;
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
-const recommendation = 0;
 
 const average = (arr) => {
   const count = {
@@ -36,7 +35,7 @@ const average = (arr) => {
   });
   count.totalReviews = count.one + count.two + count.three + count.four + count.five;
   count.recommendPercent = Math.round((count.recommendation / count.totalReviews) * 100);
-  count.average = ((count.five * 5) + (count.four * 4) + (count.three * 3) + (count.two * 2) + (count.one * 1)) / count.totalReviews;
+  count.average = Number(((count.five * 5) + (count.four * 4) + (count.three * 3) + (count.two * 2) + (count.one * 1)) / count.totalReviews).toString().substring(0, 3);
   return count;
 };
 
@@ -66,20 +65,6 @@ app.get('/api/reviews/:id', (req, res) => {
         res.end();
       }));
 });
-
-// app.get('/api/average', (req, res) => db.getAverage()
-//   .then((results) => average(results))
-//   .then((averages) => {
-//     console.log('averages: ', averages);
-//     res.send(averages);
-//   })
-//   .catch((err) => {
-//     res.send(err);
-//   })
-//   .finally(() => {
-//     res.end();
-//   }));
-
 
 app.listen(port, () => {
   console.log(`listening on ${port}`);

@@ -16,10 +16,6 @@ const Grid = styled.div`
   }
 `;
 
-const underline = {
-  borderBottom: '1px solid rgb(205, 205, 177)',
-};
-
 const ReviewBar = styled.div`
   display: flex;
   align-content: space-between;
@@ -27,7 +23,7 @@ const ReviewBar = styled.div`
   .bg {
     background-color: rgb(205, 205, 177);
     border-radius: 10px;
-    width: 50%;
+    width: 150px;
     margin: 0 20px 0 20px;
   }
   .bg>div {
@@ -40,14 +36,19 @@ const ReviewBar = styled.div`
 const Ratings = ({ rating }) => (
   <div>
 
-    <div className="overallRating" style={underline}>
+    <div className="overallRating">
       <div style={{ fontSize: 'large' }}>
         Overall Rating
       </div>
       <div>
-        {`(${rating.totalReviews} Reviews)`}
+        <ReviewBar>
+          <div className="bg" style={{ margin: '0 20px 15px 0' }}>
+            <div style={{ width: `${(rating.average * 20)}%` }}></div>
+          </div>
+          {`${rating.average} (${rating.totalReviews} Reviews)`}
+        </ReviewBar>
       </div>
-      <div>
+      <div style={{ color: 'green' }}>
         {`${rating.recommendPercent}% would recommend this product.`}
       </div>
     </div>
