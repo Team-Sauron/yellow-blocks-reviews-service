@@ -8,7 +8,7 @@ const Grid = styled.div`
   grid-gap: 10px;
   border-bottom: 1px solid rgb(205, 205, 177);
 
-  div{
+  div {
     padding: 0 0 10px 0;
   }
 `;
@@ -24,17 +24,12 @@ const Review = ({ review, thumbs, user }) => (
     </div>
 
     <Grid>
-      <div className="rate">
+      <div>
         <div>
-          <b>Recommendation: </b>
-          {review.recommendation.toString()}
-        </div>
-        <div>
-          <b>Purchased: </b>
+          <b>Purchased for: </b>
           {review.purchased}
         </div>
         <div>
-          <b>Text: </b>
           {review.text}
         </div>
 
