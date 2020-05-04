@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -11,6 +12,20 @@ const Grid = styled.div`
 const underline = {
   borderBottom: '1px solid rgb(205, 205, 177)',
 };
+
+const ReviewBar = styled.div`
+  .bg {
+    background-color: rgb(205, 205, 177);
+    border-radius: 10px;
+    width: 50%;
+  }
+  .bg>div {
+    background-color: rgb(255,237,0);
+    width: 50%;
+    height: 20px;
+    border-radius: 10px;
+  }
+`;
 
 const Ratings = ({ rating }) => (
   <div>
@@ -32,10 +47,17 @@ const Ratings = ({ rating }) => (
       <div className="Rating">
         Rating
         <div>
-          <p>
-            5 stars:
-            {`${rating.five} Reviews`}
-          </p>
+          <ReviewBar>
+
+            <div>
+              5 stars
+              <div className="bg">
+                <div></div>
+              </div>
+              {`${rating.five} Reviews`}
+            </div>
+
+          </ReviewBar>
           <p>
             4 stars:
             {' '}

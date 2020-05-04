@@ -8,10 +8,10 @@ const port = 3003;
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
+let recommendation = 0;
 
 const average = (arr) => {
   const count = {
-    recommendation: 0,
     play: 0,
     difficulty: 0,
     value: 0,
@@ -22,7 +22,7 @@ const average = (arr) => {
     five: 0,
   };
   arr.forEach((item) => {
-    count.recommendation += item.overall.recommendation;
+    recommendation += item.overall.recommendation;
     count.play += item.overall.play;
     count.difficulty += item.overall.difficulty;
     count.value += item.overall.value;
@@ -34,8 +34,8 @@ const average = (arr) => {
     count.five += item.overall.five;
   });
   count.totalReviews = count.one + count.two + count.three + count.four + count.five;
-  count.recommendPercent = Math.round((count.recommendation / count.totalReviews) * 100);
-  count.averageRating = ((count.five * 5) + (count.four * 4) + (count.three * 3) + (count.two * 2) + (count.one * 1)) / count.totalReviews;
+  count.recommendPercent = Math.round((recommendation / count.totalReviews) * 100);
+  count.average = ((count.five * 5) + (count.four * 4) + (count.three * 3) + (count.two * 2) + (count.one * 1)) / count.totalReviews;
   return count;
 };
 
