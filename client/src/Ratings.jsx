@@ -29,7 +29,7 @@ const ReviewBar = styled.div`
   .bg>div {
     background-color: rgb(255,237,0);
     height: 20px;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
   }
 `;
 
