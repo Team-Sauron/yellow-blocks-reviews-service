@@ -4,15 +4,53 @@ import ReviewHeading from './ReviewHeading';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: repeat(8, 1fr);
   grid-gap: 10px;
   border-bottom: 1px solid rgb(205, 205, 177);
+  grid-template-areas:
+    "a a a a b b b b"
+    "a a a a b b b b"
+    "c c c c d d d d"
+    "c c c c d d d d";
+    align-items: start;
 
   div {
     padding: 0 0 10px 0;
   }
   span {
     padding-left: 15px;
+  }
+  .one {
+    grid-area: a;
+    align-self: start
+  }
+  .two {
+    grid-area: b;
+    align-self: start;
+  }
+  .helpful {
+    grid-area: c;
+    align-self: end;
+  }
+`;
+
+const ReviewBar = styled.div`
+  display: flex;
+  align-content: space-between;
+  margin: 5px 50px 5px 0;
+  .bg {
+    background-color: rgb(205, 205, 177);
+    border-radius: 10px;
+    width: 150px;
+    margin: 0 20px 0 0;
+    padding: 0 0 0 0;
+  }
+  .bg>div {
+    background-color: rgb(255,237,0);
+    height: 20px;
+    border-radius: 10px 0 0 10px;
+    margin: 0 20px 0 0;
+    padding: 0 0 0 0;
   }
 `;
 
@@ -62,7 +100,7 @@ class Review extends Component {
         </div>
 
         <Grid>
-          <div>
+          <div className="one">
             <div>
               <b>Purchased for: </b>
               {review.purchased}
@@ -71,37 +109,58 @@ class Review extends Component {
               {review.text}
             </div>
 
-            <div>
-              <div>Was this helpful?</div>
+          </div>
+          <div className="helpful">
+            <div>Was this helpful?</div>
 
-              <span role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-                👍
-              </span>
-              {thumbs.yes}
-              <span role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-                👎
-              </span>
-              {thumbs.no}
-            </div>
+            <span role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
+              👍
+            </span>
+            {thumbs.yes}
+            <span role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
+              👎
+            </span>
+            {thumbs.no}
           </div>
 
           <div className="side">
+
             <div>
-              <b>Difficulty: </b>
-              {review.difficulty}
+              Play Experience
+              <ReviewBar>
+                <div className="bg">
+                  <div style={{ width: `${(review.play) * 20}%` }} />
+                </div>
+                {review.play}
+              </ReviewBar>
+            </div>
+
+            <div>
+              Level of Difficulty
+              <ReviewBar>
+                <div className="bg">
+                  <div style={{ width: `${(review.difficulty) * 20}%` }} />
+                </div>
+                {review.difficulty}
+              </ReviewBar>
             </div>
             <div>
-              <b>Value: </b>
-              {review.value}
+              Value for Money
+              <ReviewBar>
+                <div className="bg">
+                  <div style={{ width: `${(review.value) * 20}%` }} />
+                </div>
+                {review.value}
+              </ReviewBar>
             </div>
+
             <div>
               <b>Build Time: </b>
               {review.time}
+              {' '}
+              hours
             </div>
-            <div>
-              <b>Value: </b>
-              {review.value}
-            </div>
+
             <div>
               <b>Building Experience: </b>
               {user.experience}
@@ -114,10 +173,5 @@ class Review extends Component {
     );
   }
 }
-
-
-// = ({ review, thumbs, user }) => (
-
-// );
 
 export default Review;
