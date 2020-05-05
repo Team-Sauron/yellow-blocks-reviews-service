@@ -1,29 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
+import Modal from './Modal';
 
-const Image = styled.span`
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    display: inline;
-}
-`;
 
 const Pictures = ({ pictures }) => (
   <div className="picture">
     {(pictures)
       && (
-      <Image>
-        <span>
-          {Object.values(pictures).map((pic) => (
-            <img
-              key={pictures.key}
-              src={pic}
-              alt="IssaPicture"
-            />
-          ))}
-        </span>
-      </Image>
+      <div>
+        {Object.values(pictures).map((pic, id) => (
+          <Modal
+            key={id}
+            picture={pic}
+          />
+        ))}
+      </div>
       )}
   </div>
 );
