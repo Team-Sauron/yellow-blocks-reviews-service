@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ReviewHeading from './ReviewHeading';
 import Sidebar from './Sidebar';
+import Pictures from './Pictures';
 
 const Grid = styled.div`
   display: grid;
@@ -112,7 +113,9 @@ class Review extends Component {
   }
 
   render() {
-    const { review, thumbs, user } = this.props;
+    const {
+      review, thumbs, user, pictures,
+    } = this.props;
     const { isOpen, upvote, downvote } = this.state;
     return (
       <div style={underline}>
@@ -122,10 +125,7 @@ class Review extends Component {
 
         <Grid>
           <div className="one">
-            <div>
-              <b>Purchased for: </b>
-              {review.purchased}
-            </div>
+
             <div>
               {this.handleShow().map((str, id) => (
                 <div key={id}>{str}</div>
@@ -137,8 +137,13 @@ class Review extends Component {
               </button>
               )}
             </div>
-
           </div>
+
+          <div>
+            <Pictures pictures={pictures} />
+          </div>
+
+
           <div className="helpful">
             <div>Was this helpful?</div>
 
