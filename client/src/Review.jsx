@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ReviewHeading from './ReviewHeading';
+import Sidebar from './Sidebar';
 
 const Grid = styled.div`
   display: grid;
@@ -39,25 +40,6 @@ const Grid = styled.div`
     cursor: pointer;
 `;
 
-const ReviewBar = styled.div`
-  display: flex;
-  align-content: space-between;
-  margin: 5px 50px 5px 0;
-  .bg {
-    background-color: rgb(205, 205, 177);
-    border-radius: 10px;
-    width: 150px;
-    margin: 0 20px 0 0;
-    padding: 0 0 0 0;
-  }
-  .bg>div {
-    background-color: rgb(255,237,0);
-    height: 20px;
-    border-radius: 10px 0 0 10px;
-    margin: 0 20px 0 0;
-    padding: 0 0 0 0;
-  }
-`;
 
 const Thumbs = styled.span`
 span {
@@ -176,48 +158,8 @@ class Review extends Component {
             </Thumbs>
           </div>
 
-          <div className="side">
-
-            <div>
-              Play Experience
-              <ReviewBar>
-                <div className="bg">
-                  <div style={{ width: `${(review.play) * 20}%` }} />
-                </div>
-                {review.play}
-              </ReviewBar>
-            </div>
-
-            <div>
-              Level of Difficulty
-              <ReviewBar>
-                <div className="bg">
-                  <div style={{ width: `${(review.difficulty) * 20}%` }} />
-                </div>
-                {review.difficulty}
-              </ReviewBar>
-            </div>
-            <div>
-              Value for Money
-              <ReviewBar>
-                <div className="bg">
-                  <div style={{ width: `${(review.value) * 20}%` }} />
-                </div>
-                {review.value}
-              </ReviewBar>
-            </div>
-
-            <div>
-              <b>Build Time: </b>
-              {review.time}
-              {' '}
-              hours
-            </div>
-
-            <div>
-              <b>Building Experience: </b>
-              {user.experience}
-            </div>
+          <div>
+            <Sidebar review={review} user={user} />
           </div>
 
         </Grid>
