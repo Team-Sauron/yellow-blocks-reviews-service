@@ -11,8 +11,8 @@ const Grid = styled.div`
     grid-gap: 10px;
     border-bottom: 1px solid rgb(205, 205, 177);
     grid-template-areas:
-      "a a a a b b b b"
-      "a a a a b b b b"
+      "a a a a a b b b"
+      "a a a a a b b b"
       "c c c c d d d d"
       "e e e e d d d d";
   }
