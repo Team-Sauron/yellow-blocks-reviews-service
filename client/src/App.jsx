@@ -15,15 +15,6 @@ const Accordian = styled.div`
   }
 `;
 
-const Title = styled.h3`
-  border-top: 1px solid rgb(205, 205, 177);
-  background: whitesmoke;
-  padding: 20px 0 20px 25px;
-  cursor: pointer;
-  content: ${(props) => (props.isOpen ? '-' : '+')};
-  font-family: Courier, monospace;
-`;
-
 const small = {
   fontSize: 'small',
   margin: '12px 0 12px 0',
@@ -71,9 +62,9 @@ class App extends Component {
     return (
       <div>
         <div>
-          <Title onClick={this.toggleAccordian}>
+          <button type="button" className={`navBar ${isOpen ? 'active' : null}`} onClick={this.toggleAccordian}>
             Customer Reviews
-          </Title>
+          </button>
           <Accordian isOpen={isOpen}>
             <Ratings
               rating={average}

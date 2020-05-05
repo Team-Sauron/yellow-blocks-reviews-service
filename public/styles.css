@@ -1,0 +1,204 @@
+.navBar {
+  display: flex;
+  border: none;
+  border-top: 1px solid rgb(205, 205, 177);
+  padding: 20px 0 20px 25px;
+  width: 100%;
+  background: whitesmoke;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+.navBar:after {
+  content: '+';
+  margin-left: auto;
+  margin-right: 30px;
+}
+.active:after {
+  content: "-";
+}
+/*
+Accordian = styled.div
+  opacity: ${(props) => (props.isOpen ? '1' : '0')};
+  max-height: ${(props) => (props.isOpen ? '100%' : '0')};
+  padding: ${(props) => (props.isOpen ? '15px' : '0 15px')};
+  transition: all 0.2s;
+  p {
+    font-family: Courier, 'Lucida Console', monospace;
+  }
+
+
+
+
+small = {
+  fontSize: 'small',
+  margin: '12px 0 12px 0',
+};
+
+////////////////////////////////////////////////MODAL
+Image = styled.span
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 5px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .enlarge {
+    max-width: 200px;
+    max-height: 200px;
+  }
+  .modal {
+    background: gray;
+    opacity: 0.5;
+  }
+
+
+/////////////////////////////////////////////////////////Pictures
+
+/////////////////////////////////////////////////////////Ratings
+Grid = styled.div
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  border-bottom: 1px solid rgb(205, 205, 177);
+  border-radius: 10px;
+  .grid {
+    border-right: 1px solid gray;
+  }
+  .exp {
+    margin: 10px 20px 0 20px;
+  }
+
+
+
+ReviewBar = styled.div
+  display: flex;
+  align-content: space-between;
+  margin: 0 50px 0 0;
+  .bg {
+    background-color: rgb(205, 205, 177);
+    border-radius: 10px;
+    width: 150px;
+    margin: 0 20px 0 20px;
+  }
+  .bg>div {
+    background-color: rgb(255,237,0);
+    height: 20px;
+    border-radius: 10px 0 0 10px;
+  }
+
+
+////////////////////////////////////// Reviews
+Grid = styled.div
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    border-bottom: 1px solid rgb(205, 205, 177);
+    grid-template-areas:
+      "a a a a a b b b"
+      "a a a a a b b b"
+      "c c c c d d d d"
+      "e e e e d d d d";
+  }
+
+  div {
+    font-size: 18px;
+    padding: 0 0 10px 0;
+  }
+  .text {
+    grid-area: a;
+    align-self: start
+  }
+  .rating {
+    grid-area: b;
+  }
+  .pic {
+    grid-area: c;
+  }
+  .helpful {
+    grid-area: e;
+  }
+  button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
+
+
+
+
+Thumbs = styled.span
+span {
+  padding-left: 15px;
+  color: transparent;
+  transition: all 0.2s;
+}
+.up {
+  text-shadow: ${(props) => (props.upvote ? '0 0 0 dodgerBlue' : '0 0 0 gray')};
+  cursor: pointer;
+}
+.down {
+  text-shadow: ${(props) => (props.downvote ? '0 0 0 red' : '0 0 0 gray')};
+  cursor: pointer;
+}
+
+
+
+underline = {
+  borderBottom: '1px solid rgb(205, 205, 177)',
+};
+
+//////////////////////////////////////////////////ReviewHeading
+
+Space = styled.div
+  div {
+    margin: 10px 0 10px 0;
+  }
+
+
+
+ReviewBar = styled.div
+  display: flex;
+  align-content: space-between;
+  margin: 10px 50px 10px 0;
+  .bg {
+    background-color: rgb(205, 205, 177);
+    border-radius: 10px;
+    width: 150px;
+    margin: 0 20px 0 0;
+  }
+  .bg>div {
+    background-color: rgb(255,237,0);
+    height: 20px;
+    border-radius: 10px 0 0 10px;
+    margin: 0 20px 0 0;
+  }
+
+
+
+/////////////////////////////////////::-webkit-slider-runnable-trackExperience = styled.div
+display: flex;
+align-content: space-between;
+margin: 5px 50px 5px 0;
+.bg {
+  background-color: rgb(205, 205, 177);
+  border-radius: 10px;
+  width: 150px;
+  margin: 0 20px 0 0;
+  padding: 0 0 0 0;
+}
+.bg>div {
+  background-color: rgb(255,237,0);
+  height: 20px;
+  border-radius: 10px 0 0 10px;
+  margin: 0 20px 0 0;
+  padding: 0 0 0 0;
+} */
+
