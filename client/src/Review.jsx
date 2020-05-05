@@ -109,7 +109,7 @@ class Review extends Component {
     if (isOpen) {
       return [text.join('. ')];
     }
-    return [text.splice(0, 4).join('. ')];
+    return [text.splice(0, 10).join('. ').concat('.')];
   }
 
   toggleShow() {
