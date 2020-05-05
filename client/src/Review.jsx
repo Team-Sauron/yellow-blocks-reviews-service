@@ -14,6 +14,7 @@ const Grid = styled.div`
     "c c c c d d d d";
 
   div {
+    font-size: 18px;
     padding: 0 0 10px 0;
   }
   span {
@@ -31,6 +32,14 @@ const Grid = styled.div`
     grid-area: c;
     align-self: end;
   }
+  button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
 `;
 
 const ReviewBar = styled.div`
@@ -64,9 +73,12 @@ class Review extends Component {
     this.state = {
       upvote: false,
       downvote: false,
+      isOpen: false,
     };
 
     this.handleThumbs = this.handleThumbs.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.toggleShow = this.toggleShow.bind(this);
   }
 
   handleThumbs(e) {
@@ -90,8 +102,23 @@ class Review extends Component {
     }
   }
 
+  handleShow() {
+    const { isOpen } = this.state;
+    const { review } = this.props;
+    const text = review.text.split('.');
+    if (isOpen) {
+      return [text.join('. ')];
+    }
+    return [text.splice(0, 4).join('. ')];
+  }
+
+  toggleShow() {
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
+  }
+
   render() {
     const { review, thumbs, user } = this.props;
+    const { isOpen } = this.state;
     return (
       <div style={underline}>
         <div>
@@ -105,7 +132,14 @@ class Review extends Component {
               {review.purchased}
             </div>
             <div>
-              {review.text}
+              {this.handleShow().map((str, id) => (
+                <div key={id}>{str}</div>
+              ))}
+              <button type="submit" onClick={this.toggleShow}>
+                {' '}
+                {isOpen ? 'Show Less' : 'Show More'}
+                {' '}
+              </button>
             </div>
 
           </div>
