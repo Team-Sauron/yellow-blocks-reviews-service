@@ -60,6 +60,11 @@ const ReviewHeader = ({ review, user }) => (
         </div>
       </div>
 
+      <div>
+        <b>Purchased for: </b>
+        {review.purchased}
+      </div>
+
     </Space>
 
   </div>
