@@ -10,15 +10,7 @@ const Accordian = styled.div`
   max-height: ${(props) => (props.isOpen ? '100%' : '0')};
   padding: ${(props) => (props.isOpen ? '15px' : '0 15px')};
   transition: all 0.2s;
-  p {
-    font-family: Courier, 'Lucida Console', monospace;
-  }
 `;
-
-const small = {
-  fontSize: 'small',
-  margin: '12px 0 12px 0',
-};
 
 class App extends Component {
   constructor(props) {
@@ -69,7 +61,7 @@ class App extends Component {
             <Ratings
               rating={average}
             />
-            <div style={small}>
+            <div className="disclaimer">
               Please note that by submitting a helpfulness vote on a review your IP address is collected and stored by our trusted third party service provider for the sole purpose of preventing multiple entries from the same IP address. To see how to control your personal data, please see our
               <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{ textDecoration: 'none' }}> Privacy policy</a>
               .

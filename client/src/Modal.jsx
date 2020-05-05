@@ -28,7 +28,7 @@ const Image = styled.span`
   left: 50%;
   transform: translate(-50%, -50%);
   }
-  .btn {
+  .modalBtn {
   border: solid white;
   background: white;
   padding: 8px 16px;
@@ -83,7 +83,7 @@ const Modal = ({ picture }) => {
               alt="IssaModal"
             />
             <button
-              className="btn"
+              className="modalBtn"
               type="button"
               label="close"
               onClick={enlarge}

@@ -1,3 +1,7 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+}
 .navBar {
   display: flex;
   border: none;
@@ -19,23 +23,11 @@
 .active:after {
   content: "-";
 }
+.disclaimer {
+  font-size: small;
+  margin: 12px 0 12px 0;
+}
 /*
-Accordian = styled.div
-  opacity: ${(props) => (props.isOpen ? '1' : '0')};
-  max-height: ${(props) => (props.isOpen ? '100%' : '0')};
-  padding: ${(props) => (props.isOpen ? '15px' : '0 15px')};
-  transition: all 0.2s;
-  p {
-    font-family: Courier, 'Lucida Console', monospace;
-  }
-
-
-
-
-small = {
-  fontSize: 'small',
-  margin: '12px 0 12px 0',
-};
 
 ////////////////////////////////////////////////MODAL
 Image = styled.span
