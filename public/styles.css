@@ -17,6 +17,7 @@ body {
   outline: none;
   cursor: pointer;
   font-size: 20px;
+  color: black  ;
 }
 .navBar:after {
   content: '+';
@@ -89,87 +90,80 @@ img {
   margin: 0 0 10px 20px;
 }
 
-.reviewBar {
+.reviewBar.reviewHeading {
   display: flex;
   align-content: space-between;
   margin: 0 50px 0 0;
+}
+.reviewHeading {
+  margin: 10px 50px 10px 0;
 }
 .bg {
   background-color: rgb(205, 205, 177);
   border-radius: 10px;
   width: 150px;
-  margin: 0 20px 0 20px;
+  margin: 0 20px 0 0;
 }
 .bg>div {
   background-color: rgb(255,237,0);
   height: 20px;
   border-radius: 10px 0 0 10px;
 }
+.headingBG>div {
+  margin: 0 20px 0 0;
+}
+
+/* REVIEW */
+
+.reviewWrapper {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 10px;
+  border-bottom: 1px solid rgb(205, 205, 177);
+  grid-template-areas:
+    "a a a a a b b b"
+    "a a a a a b b b"
+    "c c c c d d d d"
+    "e e e e d d d d";
+}
+.review {
+  border-bottom: 1px solid rgb(205, 205, 177);
+}
+.reviewWrapper>div {
+  font-size: 18px;
+  padding: 0 0 10px 0;
+}
+.reviewText {
+  grid-area: a;
+  align-self: start
+}
+.reviewRating {
+  grid-area: b;
+}
+.pic {
+  grid-area: c;
+}
+.helpful {
+  grid-area: e;
+}
+
+button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: blue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.spaceOut>div {
+  margin: 15px 0 15px 0;
+}
+
 /*
 
-////////////////////////////////////// Reviews
-Grid = styled.div
-  .wrapper {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 10px;
-    border-bottom: 1px solid rgb(205, 205, 177);
-    grid-template-areas:
-      "a a a a a b b b"
-      "a a a a a b b b"
-      "c c c c d d d d"
-      "e e e e d d d d";
-  }
 
-  div {
-    font-size: 18px;
-    padding: 0 0 10px 0;
-  }
-  .text {
-    grid-area: a;
-    align-self: start
-  }
-  .rating {
-    grid-area: b;
-  }
-  .pic {
-    grid-area: c;
-  }
-  .helpful {
-    grid-area: e;
-  }
-  button {
-    background: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    color: blue;
-    font-weight: bold;
-    cursor: pointer;
-
-
-
-
-Thumbs = styled.span
-span {
-  padding-left: 15px;
-  color: transparent;
-  transition: all 0.2s;
-}
-.up {
-  text-shadow: ${(props) => (props.upvote ? '0 0 0 dodgerBlue' : '0 0 0 gray')};
-  cursor: pointer;
-}
-.down {
-  text-shadow: ${(props) => (props.downvote ? '0 0 0 red' : '0 0 0 gray')};
-  cursor: pointer;
-}
-
-
-
-underline = {
-  borderBottom: '1px solid rgb(205, 205, 177)',
-};
 
 //////////////////////////////////////////////////ReviewHeading
 

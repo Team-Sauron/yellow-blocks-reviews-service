@@ -1,16 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const modalBtn = {
-  border: 'solid white',
-  background: 'white',
-  padding: '8px 16px',
-  textAlign: 'center',
-  cursor: 'pointer',
-  position: 'absolute',
-  right: 0,
-  top: 0,
-};
-
 const Modal = ({ picture }) => {
   const [popUp, setPopUp] = useState(false);
   const outside = useRef();
