@@ -45,6 +45,7 @@ const Thumbs = styled.span`
 span {
   padding-left: 15px;
   color: transparent;
+  transition: all 0.2s;
 }
 .up {
   text-shadow: ${(props) => (props.upvote ? '0 0 0 dodgerBlue' : '0 0 0 gray')};
@@ -132,9 +133,7 @@ class Review extends Component {
               {(review.text.split('.').length > 10)
               && (
               <button type="submit" onClick={this.toggleShow}>
-                {' '}
                 {isOpen ? 'Show Less' : 'Show More'}
-                {' '}
               </button>
               )}
             </div>
