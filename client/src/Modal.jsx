@@ -9,22 +9,44 @@ const Image = styled.span`
     cursor: pointer;
     overflow: hidden;
   }
-  .enlarge {
-    max-width: 200px;
-    max-height: 200px;
+  .backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0, 0.3);
+  padding: 50px;
   }
   .modal {
-    background: gray;
-    opacity: 0.5;
+  display: block;
+  position: absolute;
+  border-radius: 5px;
+  max-width: 500px;
+  min-height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  .btn {
+  border: solid white;
+  background: white;
+  padding: 8px 16px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0
   }
 `;
+
 const Modal = ({ picture }) => {
   const [popUp, setPopUp] = useState(false);
-  const [className, setClassName] = useState(null);
   const outside = useRef();
 
   const handleClick = (e) => {
     if (outside.current.contains(e.target)) {
+      console.log('e.target: ', e.target);
       return;
     }
     setPopUp(false);
@@ -32,29 +54,48 @@ const Modal = ({ picture }) => {
 
   const enlarge = () => {
     setPopUp(!popUp);
-    return popUp ? setClassName('enlarge') : setClassName(null);
   };
 
   useEffect(() => {
     const getClick = document.addEventListener('click', handleClick);
+
     return () => {
       getClick();
     };
   }, []);
 
   return (
+
     <Image>
       <span>
         <img
           ref={outside}
-          className={className}
           onClick={enlarge}
           onKeyDown={enlarge}
           src={picture}
           alt="IssaPicture"
         />
+        {popUp ? (
+          <div className="backdrop">
+            <img
+              className="modal"
+              src={picture}
+              alt="IssaModal"
+            />
+            <button
+              className="btn"
+              type="button"
+              label="close"
+              onClick={enlarge}
+              onKeyDown={enlarge}
+            >
+              X
+            </button>
+          </div>
+        ) : null}
       </span>
     </Image>
+
   );
 };
 export default Modal;
