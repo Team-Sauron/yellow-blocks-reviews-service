@@ -3,10 +3,12 @@ import styled from 'styled-components';
 
 const Image = styled.span`
   img {
-    max-width: 100%;
-    max-height: 100%;
-    display: inline;
-}
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 5px;
+    cursor: pointer;
+    overflow: hidden;
+  }
 `;
 
 const Pictures = ({ pictures }) => (
@@ -15,9 +17,9 @@ const Pictures = ({ pictures }) => (
       && (
       <Image>
         <span>
-          {Object.values(pictures).map((pic) => (
+          {Object.values(pictures).map((pic, id) => (
             <img
-              key={pictures.key}
+              key={id}
               src={pic}
               alt="IssaPicture"
             />

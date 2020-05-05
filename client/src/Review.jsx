@@ -5,31 +5,34 @@ import Sidebar from './Sidebar';
 import Pictures from './Pictures';
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 10px;
-  border-bottom: 1px solid rgb(205, 205, 177);
-  grid-template-areas:
-    "a a a a b b b b"
-    "a a a a b b b b"
-    "c c c c d d d d"
-    "c c c c d d d d";
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    border-bottom: 1px solid rgb(205, 205, 177);
+    grid-template-areas:
+      "a a a a b b b b"
+      "a a a a b b b b"
+      "c c c c d d d d"
+      "e e e e d d d d";
+  }
 
   div {
     font-size: 18px;
     padding: 0 0 10px 0;
   }
-  .one {
+  .text {
     grid-area: a;
     align-self: start
   }
-  .two {
+  .rating {
     grid-area: b;
-    align-self: start;
+  }
+  .pic {
+    grid-area: c;
   }
   .helpful {
-    grid-area: c;
-    align-self: end;
+    grid-area: e;
   }
   button {
     background: none;
@@ -124,9 +127,9 @@ class Review extends Component {
         </div>
 
         <Grid>
-          <div className="one">
+          <div className="wrapper">
 
-            <div>
+            <div className="text">
               {this.handleShow().map((str, id) => (
                 <div key={id}>{str}</div>
               ))}
@@ -137,35 +140,35 @@ class Review extends Component {
               </button>
               )}
             </div>
+
+            <div className="pic">
+              <Pictures pictures={pictures} />
+            </div>
+
+
+            <div className="helpful">
+              <div>Was this helpful?</div>
+
+              <Thumbs upvote={upvote}>
+                <span className="up" role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
+                  👍
+                </span>
+                {thumbs.yes}
+              </Thumbs>
+
+              <Thumbs downvote={downvote}>
+                <span className="down" role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
+                  👎
+                </span>
+                {thumbs.no}
+              </Thumbs>
+            </div>
+
+            <div className="rating">
+              <Sidebar review={review} user={user} />
+            </div>
+
           </div>
-
-          <div>
-            <Pictures pictures={pictures} />
-          </div>
-
-
-          <div className="helpful">
-            <div>Was this helpful?</div>
-
-            <Thumbs upvote={upvote}>
-              <span className="up" role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-                👍
-              </span>
-              {thumbs.yes}
-            </Thumbs>
-
-            <Thumbs downvote={downvote}>
-              <span className="down" role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-                👎
-              </span>
-              {thumbs.no}
-            </Thumbs>
-          </div>
-
-          <div>
-            <Sidebar review={review} user={user} />
-          </div>
-
         </Grid>
 
       </div>
