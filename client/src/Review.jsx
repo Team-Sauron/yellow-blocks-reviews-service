@@ -109,7 +109,7 @@ class Review extends Component {
     if (isOpen) {
       return [text.join('. ')];
     }
-    return [text.splice(0, 10).join('. ').concat('.')];
+    return [text.splice(0, 10).join('. ')];
   }
 
   toggleShow() {
@@ -135,11 +135,14 @@ class Review extends Component {
               {this.handleShow().map((str, id) => (
                 <div key={id}>{str}</div>
               ))}
+              {(review.text.split('.').length > 10)
+              && (
               <button type="submit" onClick={this.toggleShow}>
                 {' '}
                 {isOpen ? 'Show Less' : 'Show More'}
                 {' '}
               </button>
+              )}
             </div>
 
           </div>

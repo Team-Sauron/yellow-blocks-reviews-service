@@ -60,7 +60,7 @@ const seed = () => {
     },
     review: {
       title: faker.lorem.words(),
-      text: faker.random.boolean() ? faker.lorem.paragraphs(5) : faker.lorem.paragraphs(15),
+      text: faker.lorem.paragraphs(faker.random.number({ min: 2, max: 15 })),
       published: faker.date.past(),
       recommendation: faker.random.boolean(),
       purchased: faker.hacker.noun(),
