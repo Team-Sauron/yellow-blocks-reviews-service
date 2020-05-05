@@ -13,6 +13,10 @@ const Image = styled.span`
     max-width: 200px;
     max-height: 200px;
   }
+  .modal {
+    background: gray;
+    opacity: 0.5;
+  }
 `;
 const Modal = ({ picture }) => {
   const [popUp, setPopUp] = useState(false);
@@ -28,8 +32,9 @@ const Modal = ({ picture }) => {
 
   const enlarge = () => {
     setPopUp(!popUp);
-    setClassName('enlarge');
+    return popUp ? setClassName('enlarge') : setClassName(null);
   };
+
   useEffect(() => {
     const getClick = document.addEventListener('click', handleClick);
     return () => {
@@ -38,9 +43,10 @@ const Modal = ({ picture }) => {
   }, []);
 
   return (
-    <Image ref={outside}>
+    <Image>
       <span>
         <img
+          ref={outside}
           className={className}
           onClick={enlarge}
           onKeyDown={enlarge}
