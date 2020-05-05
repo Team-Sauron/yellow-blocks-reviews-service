@@ -17,9 +17,6 @@ const Grid = styled.div`
     font-size: 18px;
     padding: 0 0 10px 0;
   }
-  span {
-    padding-left: 15px;
-  }
   .one {
     grid-area: a;
     align-self: start
@@ -60,6 +57,21 @@ const ReviewBar = styled.div`
     margin: 0 20px 0 0;
     padding: 0 0 0 0;
   }
+`;
+
+const Thumbs = styled.span`
+span {
+  padding-left: 15px;
+  color: transparent;
+}
+.up {
+  text-shadow: ${(props) => (props.upvote ? '0 0 0 dodgerBlue' : '0 0 0 gray')};
+  cursor: pointer;
+}
+.down {
+  text-shadow: ${(props) => (props.downvote ? '0 0 0 red' : '0 0 0 gray')};
+  cursor: pointer;
+}
 `;
 
 const underline = {
@@ -118,7 +130,7 @@ class Review extends Component {
 
   render() {
     const { review, thumbs, user } = this.props;
-    const { isOpen } = this.state;
+    const { isOpen, upvote, downvote } = this.state;
     return (
       <div style={underline}>
         <div>
@@ -149,14 +161,19 @@ class Review extends Component {
           <div className="helpful">
             <div>Was this helpful?</div>
 
-            <span role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-              👍
-            </span>
-            {thumbs.yes}
-            <span role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-              👎
-            </span>
-            {thumbs.no}
+            <Thumbs upvote={upvote}>
+              <span className="up" role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
+                👍
+              </span>
+              {thumbs.yes}
+            </Thumbs>
+
+            <Thumbs downvote={downvote}>
+              <span className="down" role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
+                👎
+              </span>
+              {thumbs.no}
+            </Thumbs>
           </div>
 
           <div className="side">
