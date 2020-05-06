@@ -3,7 +3,7 @@ import React from 'react';
 const Ratings = ({ rating }) => (
   <div>
     <div className="overallRating">
-      <div className="overallTitle">
+      <div className="overallHead">
         Overall Rating
       </div>
 
