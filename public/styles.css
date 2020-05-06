@@ -32,6 +32,17 @@ body {
   margin: 12px 0 0 0;
 }
 
+.sortBy {
+  display: flex;
+  border: 1px solid silver;
+  padding: 15px 0 15px 20px;
+  width: 100%;
+  text-align: left;
+  margin: 10px 0;
+  background-color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 /* MODAL */
 
 img {
@@ -184,30 +195,20 @@ button {
 
 /* Stars */
 
-.Stars {
+.Stars, .Bricks  {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   font-size: 25px;
   background:white;
   margin: 0 10px 0 0;
 }
-.Stars::before {
+.Stars::before, .Bricks::before {
   content: '★★★★★';
   background: linear-gradient(90deg, gold var(--percent), gray var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.Bricks {
-  --percent: calc(var(--rating) / 5 * 100%);
-  display: inline-block;
-  font-size: 25px;
-  background:white;
-  margin: 0 10px 0 0;
-}
 .Bricks::before {
   content: '♠♠♠♠♠';
-  background: linear-gradient(90deg, gold var(--percent), gray var(--percent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
