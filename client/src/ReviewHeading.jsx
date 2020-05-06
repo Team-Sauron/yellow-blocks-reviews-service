@@ -14,6 +14,7 @@ const ReviewHeader = ({ review, user }) => (
           stars={review.rating}
         />
         {review.rating}
+        .0
       </div>
 
       <div>

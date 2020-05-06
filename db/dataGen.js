@@ -77,13 +77,13 @@ const seed = () => {
       difficulty: faker.random.number({ min: 1, max: 5 }),
       value: faker.random.number({ min: 1, max: 5 }),
       five: faker.random.number(30),
-      four: faker.random.number(30),
-      three: faker.random.number(30),
-      two: faker.random.number(30),
-      one: faker.random.number(30),
+      four: faker.random.number(5),
+      three: faker.random.number(5),
+      two: faker.random.number(5),
+      one: faker.random.number(5),
     },
     helpful: {
-      yes: faker.random.number(200),
+      yes: faker.random.number(100),
       no: faker.random.number(50),
     },
   });

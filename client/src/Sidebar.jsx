@@ -10,6 +10,8 @@ const Sidebar = ({ review, user }) => (
           bricks={review.play}
         />
         {review.play}
+        {' '}
+        .0
       </div>
     </div>
 
@@ -20,6 +22,8 @@ const Sidebar = ({ review, user }) => (
           bricks={review.difficulty}
         />
         {review.difficulty}
+        {' '}
+        .0
       </div>
     </div>
 
@@ -30,6 +34,8 @@ const Sidebar = ({ review, user }) => (
           bricks={review.value}
         />
         {review.value}
+        {' '}
+        .0
       </div>
     </div>
 
