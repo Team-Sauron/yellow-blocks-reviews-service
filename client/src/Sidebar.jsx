@@ -1,41 +1,34 @@
 import React from 'react';
-import Bricks from './Bricks';
 
 const Sidebar = ({ review, user }) => (
-  <div className="spaceOut side">
+  <div className="spaceOut">
     <div>
       Play Experience
       <div className="headingBG flexRating">
-        <Bricks
-          bricks={review.play}
-        />
+        <div className="bg">
+          <div style={{ width: `${(review.play) * 20}%` }} />
+        </div>
         {review.play}
-        {' '}
-        .0
       </div>
     </div>
 
     <div>
       Level of Difficulty
       <div className="headingBG flexRating">
-        <Bricks
-          bricks={review.difficulty}
-        />
+        <div className="bg">
+          <div style={{ width: `${(review.difficulty) * 20}%` }} />
+        </div>
         {review.difficulty}
-        {' '}
-        .0
       </div>
     </div>
 
     <div>
       Value for Money
       <div className="headingBG flexRating">
-        <Bricks
-          bricks={review.value}
-        />
+        <div className="bg">
+          <div style={{ width: `${(review.value) * 20}%` }} />
+        </div>
         {review.value}
-        {' '}
-        .0
       </div>
     </div>
 
