@@ -1,26 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
 
-const Image = styled.span`
-  img {
-    max-width: 100px;
-    max-height: 100px;
-    margin: 0 5px;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  .enlarge {
-    max-width: 200px;
-    max-height: 200px;
-  }
-  .modal {
-    background: gray;
-    opacity: 0.5;
-  }
-`;
 const Modal = ({ picture }) => {
   const [popUp, setPopUp] = useState(false);
-  const [className, setClassName] = useState(null);
   const outside = useRef();
 
   const handleClick = (e) => {
@@ -32,29 +13,51 @@ const Modal = ({ picture }) => {
 
   const enlarge = () => {
     setPopUp(!popUp);
-    return popUp ? setClassName('enlarge') : setClassName(null);
   };
 
   useEffect(() => {
     const getClick = document.addEventListener('click', handleClick);
+
     return () => {
       getClick();
     };
   }, []);
 
+  useEffect(() => {
+    popUp && (document.body.style.overflow = 'hidden');
+    !popUp && (document.body.style.overflow = '');
+  }, [popUp]);
+
   return (
-    <Image>
-      <span>
-        <img
-          ref={outside}
-          className={className}
-          onClick={enlarge}
-          onKeyDown={enlarge}
-          src={picture}
-          alt="IssaPicture"
-        />
-      </span>
-    </Image>
+
+    <span>
+      <img
+        ref={outside}
+        onClick={enlarge}
+        onKeyDown={enlarge}
+        src={picture}
+        alt="IssaPicture"
+      />
+      {popUp ? (
+        <div className="backdrop">
+          <img
+            className="modal"
+            src={picture}
+            alt="IssaModal"
+          />
+          <button
+            className="modalBtn"
+            type="button"
+            label="close"
+            onClick={enlarge}
+            onKeyDown={enlarge}
+          >
+            X
+          </button>
+        </div>
+      ) : null}
+    </span>
+
   );
 };
 export default Modal;

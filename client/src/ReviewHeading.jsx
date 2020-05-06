@@ -1,45 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import moment from 'moment';
-
-const Space = styled.div`
-  div {
-    margin: 10px 0 10px 0;
-  }
-`;
-
-const ReviewBar = styled.div`
-  display: flex;
-  align-content: space-between;
-  margin: 10px 50px 10px 0;
-  .bg {
-    background-color: rgb(205, 205, 177);
-    border-radius: 10px;
-    width: 150px;
-    margin: 0 20px 0 0;
-  }
-  .bg>div {
-    background-color: rgb(255,237,0);
-    height: 20px;
-    border-radius: 10px 0 0 10px;
-    margin: 0 20px 0 0;
-  }
-`;
 
 const ReviewHeader = ({ review, user }) => (
   <div>
-    <Space>
+    <div className="spaceOut">
       <div>
         {moment(review.published).format('MMMM Do, YYYY')}
       </div>
 
-      <div>
-        <ReviewBar>
-          <div className="bg">
-            <div style={{ width: `${(review.rating) * 20}%` }} />
-          </div>
-          {review.rating}
-        </ReviewBar>
+      <div className="reviewBar reviewHeading">
+        <div className="bg headingBG">
+          <div style={{ width: `${(review.rating) * 20}%` }} />
+        </div>
+        {review.rating}
       </div>
 
       <div>
@@ -65,7 +38,7 @@ const ReviewHeader = ({ review, user }) => (
         {review.purchased}
       </div>
 
-    </Space>
+    </div>
 
   </div>
 );

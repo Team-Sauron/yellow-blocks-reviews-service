@@ -10,24 +10,7 @@ const Accordian = styled.div`
   max-height: ${(props) => (props.isOpen ? '100%' : '0')};
   padding: ${(props) => (props.isOpen ? '15px' : '0 15px')};
   transition: all 0.2s;
-  p {
-    font-family: Courier, 'Lucida Console', monospace;
-  }
 `;
-
-const Title = styled.h3`
-  border-top: 1px solid rgb(205, 205, 177);
-  background: whitesmoke;
-  padding: 20px 0 20px 25px;
-  cursor: pointer;
-  content: ${(props) => (props.isOpen ? '-' : '+')};
-  font-family: Courier, monospace;
-`;
-
-const small = {
-  fontSize: 'small',
-  margin: '12px 0 12px 0',
-};
 
 class App extends Component {
   constructor(props) {
@@ -71,19 +54,22 @@ class App extends Component {
     return (
       <div>
         <div>
-          <Title onClick={this.toggleAccordian}>
+          <button type="button" className={`navBar ${isOpen ? 'active' : null}`} onClick={this.toggleAccordian}>
             Customer Reviews
-          </Title>
+          </button>
           <Accordian isOpen={isOpen}>
             <Ratings
               rating={average}
             />
-            <div style={small}>
+            <div className="disclaimer">
               Please note that by submitting a helpfulness vote on a review your IP address is collected and stored by our trusted third party service provider for the sole purpose of preventing multiple entries from the same IP address. To see how to control your personal data, please see our
               <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{ textDecoration: 'none' }}> Privacy policy</a>
               .
             </div>
             <br />
+            <div className="overallTitle review">
+              <b>Reviews</b>
+            </div>
             <ReviewsList
               reviews={reviews}
             />

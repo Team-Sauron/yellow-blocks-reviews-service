@@ -4,47 +4,6 @@ import ReviewHeading from './ReviewHeading';
 import Sidebar from './Sidebar';
 import Pictures from './Pictures';
 
-const Grid = styled.div`
-  .wrapper {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 10px;
-    border-bottom: 1px solid rgb(205, 205, 177);
-    grid-template-areas:
-      "a a a a a b b b"
-      "a a a a a b b b"
-      "c c c c d d d d"
-      "e e e e d d d d";
-  }
-
-  div {
-    font-size: 18px;
-    padding: 0 0 10px 0;
-  }
-  .text {
-    grid-area: a;
-    align-self: start
-  }
-  .rating {
-    grid-area: b;
-  }
-  .pic {
-    grid-area: c;
-  }
-  .helpful {
-    grid-area: e;
-  }
-  button {
-    background: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    color: blue;
-    font-weight: bold;
-    cursor: pointer;
-`;
-
-
 const Thumbs = styled.span`
 span {
   padding-left: 15px;
@@ -53,17 +12,11 @@ span {
 }
 .up {
   text-shadow: ${(props) => (props.upvote ? '0 0 0 dodgerBlue' : '0 0 0 gray')};
-  cursor: pointer;
 }
 .down {
   text-shadow: ${(props) => (props.downvote ? '0 0 0 red' : '0 0 0 gray')};
-  cursor: pointer;
 }
 `;
-
-const underline = {
-  borderBottom: '1px solid rgb(205, 205, 177)',
-};
 
 class Review extends Component {
   constructor(props) {
@@ -121,57 +74,55 @@ class Review extends Component {
     } = this.props;
     const { isOpen, upvote, downvote } = this.state;
     return (
-      <div style={underline}>
+      <div className="review">
         <div>
           <ReviewHeading review={review} user={user} />
         </div>
 
-        <Grid>
-          <div className="wrapper">
+        <div className="reviewWrapper">
 
-            <div className="text">
-              {this.handleShow().map((str, id) => (
-                <div key={id}>{str}</div>
-              ))}
-              {(review.text.split('.').length > 10)
+          <div className="reviewText">
+            {this.handleShow().map((str, id) => (
+              <div key={id}>{str}</div>
+            ))}
+            {(review.text.split('.').length > 10)
               && (
-              <button type="submit" onClick={this.toggleShow}>
+              <button className="showMore" type="submit" onClick={this.toggleShow}>
                 {isOpen ? 'Show Less' : 'Show More'}
               </button>
               )}
-            </div>
-
-            <div className="pic">
-              <Pictures pictures={pictures} />
-            </div>
-
-
-            <div className="helpful">
-              <div>Was this helpful?</div>
-
-              <Thumbs upvote={upvote}>
-                <span className="up" role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-                  👍
-                </span>
-                {thumbs.yes}
-              </Thumbs>
-
-              <Thumbs downvote={downvote}>
-                <span className="down" role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-                  👎
-                </span>
-                {thumbs.no}
-              </Thumbs>
-            </div>
-
-            <div className="rating">
-              <Sidebar review={review} user={user} />
-            </div>
-
           </div>
-        </Grid>
 
+          <div className="pic">
+            <Pictures pictures={pictures} />
+          </div>
+
+
+          <div className="helpful">
+            <div>Was this helpful?</div>
+
+            <Thumbs upvote={upvote}>
+              <span className="up" role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
+                👍
+              </span>
+              {thumbs.yes}
+            </Thumbs>
+
+            <Thumbs downvote={downvote}>
+              <span className="down" role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
+                👎
+              </span>
+              {thumbs.no}
+            </Thumbs>
+          </div>
+
+          <div className="reviewRating">
+            <Sidebar review={review} user={user} />
+          </div>
+
+        </div>
       </div>
+
     );
   }
 }
