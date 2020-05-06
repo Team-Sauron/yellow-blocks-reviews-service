@@ -67,6 +67,9 @@ class App extends Component {
               .
             </div>
             <br />
+            <div className="overallTitle review">
+              <b>Reviews</b>
+            </div>
             <ReviewsList
               reviews={reviews}
             />

@@ -12,11 +12,9 @@ span {
 }
 .up {
   text-shadow: ${(props) => (props.upvote ? '0 0 0 dodgerBlue' : '0 0 0 gray')};
-  cursor: pointer;
 }
 .down {
   text-shadow: ${(props) => (props.downvote ? '0 0 0 red' : '0 0 0 gray')};
-  cursor: pointer;
 }
 `;
 

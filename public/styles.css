@@ -29,7 +29,7 @@ body {
 }
 .disclaimer {
   font-size: small;
-  margin: 12px 0 12px 0;
+  margin: 12px 0 0 0;
 }
 
 /* MODAL */
@@ -80,14 +80,18 @@ img {
 
 /* OVERALL RATING */
 
-.rating {
+.separator {
   border-right: 1px solid gray;
 }
+.overallTitle {
+  margin: 0 0 20px 0;
+  font-size: large;
+}
 .exp {
-  margin: 10px 20px 0 20px;
+  margin: 5px 20px 5px 20px;
 }
 .overall {
-  margin: 0 0 10px 20px;
+  margin: 0 0 20px 20px;
 }
 
 .reviewBar.reviewHeading {
@@ -102,15 +106,23 @@ img {
   background-color: rgb(205, 205, 177);
   border-radius: 10px;
   width: 150px;
-  margin: 0 20px 0 0;
+  margin: 0 20px 0 20px;
 }
 .bg>div {
   background-color: rgb(255,237,0);
   height: 20px;
   border-radius: 10px 0 0 10px;
 }
+.headingBG {
+  margin: 0 20px 0 0;
+}
 .headingBG>div {
   margin: 0 20px 0 0;
+}
+
+.flexRating {
+  display: flex;
+  align-content: space-between;
 }
 
 /* REVIEW */
@@ -161,54 +173,6 @@ button {
   margin: 15px 0 15px 0;
 }
 
-/*
-
-
-
-//////////////////////////////////////////////////ReviewHeading
-
-Space = styled.div
-  div {
-    margin: 10px 0 10px 0;
-  }
-
-
-
-ReviewBar = styled.div
-  display: flex;
-  align-content: space-between;
-  margin: 10px 50px 10px 0;
-  .bg {
-    background-color: rgb(205, 205, 177);
-    border-radius: 10px;
-    width: 150px;
-    margin: 0 20px 0 0;
-  }
-  .bg>div {
-    background-color: rgb(255,237,0);
-    height: 20px;
-    border-radius: 10px 0 0 10px;
-    margin: 0 20px 0 0;
-  }
-
-
-
-/////////////////////////////////////::-webkit-slider-runnable-trackExperience = styled.div
-display: flex;
-align-content: space-between;
-margin: 5px 50px 5px 0;
-.bg {
-  background-color: rgb(205, 205, 177);
-  border-radius: 10px;
-  width: 150px;
-  margin: 0 20px 0 0;
-  padding: 0 0 0 0;
+.up.down {
+  cursor: pointer;
 }
-.bg>div {
-  background-color: rgb(255,237,0);
-  height: 20px;
-  border-radius: 10px 0 0 10px;
-  margin: 0 20px 0 0;
-  padding: 0 0 0 0;
-} */
-
