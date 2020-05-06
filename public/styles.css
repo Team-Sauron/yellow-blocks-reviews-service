@@ -207,6 +207,7 @@ button {
   background: linear-gradient(90deg, gold var(--percent), gray var(--percent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .Bricks::before {
