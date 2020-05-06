@@ -13,9 +13,6 @@ const Modal = ({ picture }) => {
 
   const enlarge = () => {
     setPopUp(!popUp);
-    if (popUp) {
-
-    }
   };
 
   useEffect(() => {
