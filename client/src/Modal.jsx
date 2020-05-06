@@ -13,6 +13,9 @@ const Modal = ({ picture }) => {
 
   const enlarge = () => {
     setPopUp(!popUp);
+    if (popUp) {
+
+    }
   };
 
   useEffect(() => {
@@ -22,6 +25,11 @@ const Modal = ({ picture }) => {
       getClick();
     };
   }, []);
+
+  useEffect(() => {
+    popUp && (document.body.style.overflow = 'hidden');
+    !popUp && (document.body.style.overflow = '');
+  }, [popUp]);
 
   return (
 
