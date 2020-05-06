@@ -1,13 +1,14 @@
 import React from 'react';
+import Stars from './Stars';
 
 const Sidebar = ({ review, user }) => (
   <div className="spaceOut">
     <div>
       Play Experience
       <div className="headingBG flexRating">
-        <div className="bg">
-          <div style={{ width: `${(review.play) * 20}%` }} />
-        </div>
+        <Stars
+          stars={review.play}
+        />
         {review.play}
       </div>
     </div>
@@ -15,9 +16,9 @@ const Sidebar = ({ review, user }) => (
     <div>
       Level of Difficulty
       <div className="headingBG flexRating">
-        <div className="bg">
-          <div style={{ width: `${(review.difficulty) * 20}%` }} />
-        </div>
+        <Stars
+          stars={review.difficulty}
+        />
         {review.difficulty}
       </div>
     </div>
@@ -25,9 +26,9 @@ const Sidebar = ({ review, user }) => (
     <div>
       Value for Money
       <div className="headingBG flexRating">
-        <div className="bg">
-          <div style={{ width: `${(review.value) * 20}%` }} />
-        </div>
+        <Stars
+          stars={review.value}
+        />
         {review.value}
       </div>
     </div>

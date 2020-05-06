@@ -127,6 +127,7 @@ img {
 .flexRating {
   display: flex;
   align-content: space-between;
+  align-items: center;
 }
 
 /* REVIEW */
@@ -179,4 +180,19 @@ button {
 
 .up.down {
   cursor: pointer;
+}
+
+/* Stars */
+
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: 25px;
+  background:white;
+}
+.Stars::before {
+  content: '★★★★★';
+  background: linear-gradient(90deg, gold var(--percent), gray var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

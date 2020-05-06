@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import Stars from './Stars';
 
 const ReviewHeader = ({ review, user }) => (
   <div>
@@ -9,9 +10,9 @@ const ReviewHeader = ({ review, user }) => (
       </div>
 
       <div className="reviewBar reviewHeading">
-        <div className="bg headingBG">
-          <div style={{ width: `${(review.rating) * 20}%` }} />
-        </div>
+        <Stars
+          stars={review.rating}
+        />
         {review.rating}
       </div>
 

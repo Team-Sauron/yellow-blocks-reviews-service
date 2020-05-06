@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from './Stars';
 
 const Ratings = ({ rating }) => (
   <div>
@@ -9,9 +10,9 @@ const Ratings = ({ rating }) => (
 
       <div>
         <div className="reviewBar flexRating testHeader">
-          <div className="bg" style={{ margin: '0 20px 15px 0' }}>
-            <div className="overallRating" style={{ width: `${(rating.average * 20)}%` }} />
-          </div>
+          <Stars
+            stars={rating.average}
+          />
           {`${rating.average} (${rating.totalReviews} Reviews)`}
         </div>
       </div>
@@ -87,9 +88,9 @@ const Ratings = ({ rating }) => (
           Play Experience
         </div>
         <div className="reviewBar flexRating">
-          <div className="bg">
-            <div style={{ width: `${(rating.play / 4) * 20}%` }} />
-          </div>
+          <Stars
+            stars={rating.play / 4}
+          />
           {`${(rating.play / 4)}`}
         </div>
 
@@ -97,9 +98,9 @@ const Ratings = ({ rating }) => (
           Level of Difficulty
         </div>
         <div className="reviewBar flexRating">
-          <div className="bg">
-            <div style={{ width: `${(rating.difficulty / 4) * 20}%` }} />
-          </div>
+          <Stars
+            stars={rating.difficulty / 4}
+          />
           {`${(rating.difficulty / 4)}`}
         </div>
 
@@ -107,9 +108,9 @@ const Ratings = ({ rating }) => (
           Value for Money
         </div>
         <div className="reviewBar flexRating">
-          <div className="bg">
-            <div style={{ width: `${(rating.value / 4) * 20}%` }} />
-          </div>
+          <Stars
+            stars={rating.value / 4}
+          />
           {`${(rating.value / 4)}`}
         </div>
       </div>
