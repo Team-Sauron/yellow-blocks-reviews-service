@@ -87,6 +87,10 @@ img {
   margin: 0 0 20px 0;
   font-size: large;
 }
+.overallHead {
+  margin: 0 0 10px 0;
+  font-size: large;
+}
 .exp {
   margin: 5px 20px 5px 20px;
 }

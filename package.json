@@ -11,17 +11,20 @@
     "build": "webpack --config webpack.config.js",
     "build:dev": "webpack -d --watch",
     "seed:db": "node db/dataGen.js",
-    "start": "nodemon server --i client/ -i public/"
+    "start": "nodemon server --i client/ -i public/",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "jest": "^26.0.1",
     "jquery": "^3.5.0",
     "moment": "^2.25.3",
     "mongoose": "^5.9.10",
     "nodemon": "^2.0.3",
+    "puppeteer": "^3.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.0",
