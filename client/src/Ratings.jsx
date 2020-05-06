@@ -8,7 +8,7 @@ const Ratings = ({ rating }) => (
       </div>
 
       <div>
-        <div className="reviewBar flexRating">
+        <div className="reviewBar flexRating testHeader">
           <div className="bg" style={{ margin: '0 20px 15px 0' }}>
             <div className="overallRating" style={{ width: `${(rating.average * 20)}%` }} />
           </div>
