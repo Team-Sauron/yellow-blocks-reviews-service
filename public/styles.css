@@ -32,6 +32,17 @@ body {
   margin: 12px 0 0 0;
 }
 
+.sortBy {
+  display: flex;
+  border: 1px solid silver;
+  padding: 15px 0 15px 20px;
+  width: 100%;
+  text-align: left;
+  margin: 10px 0;
+  background-color: white;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 /* MODAL */
 
 img {
@@ -71,41 +82,8 @@ img {
   top: 0;
 }
 
-.gridWrapper {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 10px;
-  border-bottom: 1px solid rgb(205, 205, 177);
-}
+/* REVIEW BAR */
 
-/* OVERALL RATING */
-
-.separator {
-  border-right: 1px solid gray;
-}
-.overallTitle {
-  margin: 0 0 20px 0;
-  font-size: large;
-}
-.overallHead {
-  margin: 0 0 10px 0;
-  font-size: large;
-}
-.exp {
-  margin: 5px 20px 5px 20px;
-}
-.overall {
-  margin: 0 0 20px 20px;
-}
-
-.reviewBar.reviewHeading {
-  display: flex;
-  align-content: space-between;
-  margin: 0 50px 0 0;
-}
-.reviewHeading {
-  margin: 10px 50px 10px 0;
-}
 .bg {
   background-color: rgb(205, 205, 177);
   border-radius: 10px;
@@ -117,16 +95,50 @@ img {
   height: 20px;
   border-radius: 10px 0 0 10px;
 }
-.headingBG {
-  margin: 0 20px 0 0;
-}
-.headingBG>div {
-  margin: 0 20px 0 0;
+
+/* OVERALL RATING */
+
+.gridWrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 10px;
+  border-bottom: 1px solid rgb(205, 205, 177);
 }
 
-.flexRating {
+.separator {
+  border-right: 1px solid gray;
+}
+.overallTitle, .overallHead {
+  margin: 0 0 20px 0;
+  font-size: large;
+}
+.overallHead {
+  margin: 0 0 10px 0;
+}
+.exp {
+  margin: 5px 20px 5px 20px;
+}
+.overall {
+  margin: 0 0 20px 20px;
+}
+
+.overallStar, .reviewBar, .reviewStar, .flexRating, .testHeader {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
   align-content: space-between;
+}
+.reviewBar {
+  margin: 0 50px 0 0;
+}
+
+.overallStar {
+  margin: 0 0 0 20px;
+}
+
+.reviewStar {
+  font-size: 18px;
+  margin: 10px 50px 10px 0;
 }
 
 /* REVIEW */
@@ -176,7 +188,31 @@ button {
 .spaceOut>div {
   margin: 15px 0 15px 0;
 }
+.side>div {
+  margin: 0 0 15px 0;
+}
 
-.up.down {
+.up, .down {
   cursor: pointer;
+}
+
+/* Stars */
+
+.Stars, .Bricks  {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: 25px;
+  background:white;
+  margin: 0 10px 0 0;
+}
+.Stars::before, .Bricks::before {
+  content: '★★★★★';
+  background: linear-gradient(90deg, gold var(--percent), gray var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Bricks::before {
+  content: '♠♠♠♠♠';
 }

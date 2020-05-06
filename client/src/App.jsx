@@ -68,7 +68,17 @@ class App extends Component {
             </div>
             <br />
             <div className="overallTitle review">
-              <b>Reviews</b>
+              <div>
+                <b>Reviews</b>
+              </div>
+              <select className="sortBy selectBar" defaultValue="Relevant">
+                <option value="dateNF">Date - Newest First</option>
+                <option value="dateOF">Date - Oldest First</option>
+                <option value="RHtL">Rating - High to Low</option>
+                <option value="RLtH">Rating - Low to High</option>
+                <option value="Helpfulness">Helpfulness</option>
+                <option value="Relevant">Most Relevant</option>
+              </select>
             </div>
             <ReviewsList
               reviews={reviews}
