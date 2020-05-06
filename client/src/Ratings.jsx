@@ -9,7 +9,7 @@ const Ratings = ({ rating }) => (
       </div>
 
       <div>
-        <div className="reviewBar flexRating testHeader">
+        <div className="testHeader">
           <Stars
             stars={rating.average}
           />
@@ -30,7 +30,7 @@ const Ratings = ({ rating }) => (
           Rating
         </div>
 
-        <div className="reviewBar flexRating">
+        <div className="reviewBar">
           <div>5 stars</div>
           <div className="bg">
             <div style={{ width: `${(rating.five / rating.totalReviews) * 100}%` }} />
@@ -41,7 +41,7 @@ const Ratings = ({ rating }) => (
         </div>
         <br />
 
-        <div className="reviewBar flexRating">
+        <div className="reviewBar">
           4 stars
           <div className="bg">
             <div style={{ width: `${(rating.four / rating.totalReviews) * 100}%` }} />
@@ -50,7 +50,7 @@ const Ratings = ({ rating }) => (
         </div>
         <br />
 
-        <div className="reviewBar flexRating">
+        <div className="reviewBar">
           3 stars
           <div className="bg">
             <div style={{ width: `${(rating.three / rating.totalReviews) * 100}%` }} />
@@ -59,7 +59,7 @@ const Ratings = ({ rating }) => (
         </div>
         <br />
 
-        <div className="reviewBar flexRating">
+        <div className="reviewBar">
           2 stars
           <div className="bg">
             <div style={{ width: `${(rating.two / rating.totalReviews) * 100}%` }} />
@@ -68,7 +68,7 @@ const Ratings = ({ rating }) => (
         </div>
         <br />
 
-        <div className="reviewBar flexRating">
+        <div className="reviewBar">
           1 stars
           <div className="bg">
             <div style={{ width: `${(rating.one / rating.totalReviews) * 100}%` }} />
@@ -87,7 +87,7 @@ const Ratings = ({ rating }) => (
         <div className="exp">
           Play Experience
         </div>
-        <div className="reviewBar flexRating">
+        <div className="overallStar ">
           <Stars
             stars={rating.play / 4}
           />
@@ -97,7 +97,7 @@ const Ratings = ({ rating }) => (
         <div className="exp">
           Level of Difficulty
         </div>
-        <div className="reviewBar flexRating">
+        <div className="overallStar ">
           <Stars
             stars={rating.difficulty / 4}
           />
@@ -107,7 +107,7 @@ const Ratings = ({ rating }) => (
         <div className="exp">
           Value for Money
         </div>
-        <div className="reviewBar flexRating">
+        <div className="overallStar ">
           <Stars
             stars={rating.value / 4}
           />

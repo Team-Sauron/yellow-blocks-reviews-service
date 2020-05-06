@@ -9,7 +9,7 @@ const ReviewHeader = ({ review, user }) => (
         {moment(review.published).format('MMMM Do, YYYY')}
       </div>
 
-      <div className="reviewBar reviewHeading">
+      <div className="reviewStar reviewHeading">
         <Stars
           stars={review.rating}
         />
