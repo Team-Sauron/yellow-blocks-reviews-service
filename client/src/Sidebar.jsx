@@ -1,13 +1,13 @@
 import React from 'react';
-import Stars from './Stars';
+import Bricks from './Bricks';
 
 const Sidebar = ({ review, user }) => (
   <div className="spaceOut">
     <div>
       Play Experience
       <div className="headingBG flexRating">
-        <Stars
-          stars={review.play}
+        <Bricks
+          bricks={review.play}
         />
         {review.play}
       </div>
@@ -16,8 +16,8 @@ const Sidebar = ({ review, user }) => (
     <div>
       Level of Difficulty
       <div className="headingBG flexRating">
-        <Stars
-          stars={review.difficulty}
+        <Bricks
+          bricks={review.difficulty}
         />
         {review.difficulty}
       </div>
@@ -26,8 +26,8 @@ const Sidebar = ({ review, user }) => (
     <div>
       Value for Money
       <div className="headingBG flexRating">
-        <Stars
-          stars={review.value}
+        <Bricks
+          bricks={review.value}
         />
         {review.value}
       </div>

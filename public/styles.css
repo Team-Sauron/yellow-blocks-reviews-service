@@ -197,3 +197,17 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.Bricks {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: 25px;
+  background:white;
+  margin: 0 10px 0 0;
+}
+.Bricks::before {
+  content: '♠♠♠♠♠';
+  background: linear-gradient(90deg, gold var(--percent), gray var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

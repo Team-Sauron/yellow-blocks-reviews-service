@@ -1,5 +1,6 @@
 import React from 'react';
 import Stars from './Stars';
+import Bricks from './Bricks';
 
 const Ratings = ({ rating }) => (
   <div>
@@ -88,8 +89,8 @@ const Ratings = ({ rating }) => (
           Play Experience
         </div>
         <div className="overallStar ">
-          <Stars
-            stars={rating.play / 4}
+          <Bricks
+            bricks={rating.play / 4}
           />
           {`${(rating.play / 4)}`}
         </div>
@@ -98,8 +99,8 @@ const Ratings = ({ rating }) => (
           Level of Difficulty
         </div>
         <div className="overallStar ">
-          <Stars
-            stars={rating.difficulty / 4}
+          <Bricks
+            bricks={rating.difficulty / 4}
           />
           {`${(rating.difficulty / 4)}`}
         </div>
@@ -108,8 +109,8 @@ const Ratings = ({ rating }) => (
           Value for Money
         </div>
         <div className="overallStar ">
-          <Stars
-            stars={rating.value / 4}
+          <Bricks
+            bricks={rating.value / 4}
           />
           {`${(rating.value / 4)}`}
         </div>
