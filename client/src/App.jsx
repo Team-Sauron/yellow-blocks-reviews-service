@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div>
         <div>
-          <button type="button" className={`navBar ${isOpen ? 'active' : null}`} onClick={this.toggleAccordian}>
+          <button type="button" className={`navBar ${isOpen ? 'isOpen' : null}`} onClick={this.toggleAccordian}>
             Customer Reviews
           </button>
           <Accordian isOpen={isOpen}>
