@@ -33,7 +33,7 @@ class App extends Component {
   getReviews() {
     let id = window.location.href;
     id = id.slice(id.indexOf('=') + 1);
-    axios.get(`/api/reviews/${id}`)
+    axios.get(`http://localhost:3003/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
           average: reviews.data[0],

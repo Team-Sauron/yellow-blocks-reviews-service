@@ -6,7 +6,7 @@ const Rate = styled.div`
   `;
 
 const Stars = ({ stars }) => (
-  <div className="stars">
+  <div className="reviewStars">
     <Rate stars={stars}>
       <div className="Stars" aria-label="starRating" />
     </Rate>
