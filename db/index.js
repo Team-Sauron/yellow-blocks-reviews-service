@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/sauron', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/smego', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 

@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Team-Sauron/Smego-carousel-service
+  - https://github.com/Team-Sauron/smego-accordion
+  - https://github.com/Team-Sauron/smego-info-section
+  - https://github.com/Team-Sauron/smego-reviews-service
 
 ## Table of Contents
 
