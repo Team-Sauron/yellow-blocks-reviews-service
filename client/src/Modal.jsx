@@ -32,6 +32,7 @@ const Modal = ({ picture }) => {
 
     <span>
       <img
+        className="IssaPicture"
         ref={outside}
         onClick={enlarge}
         onKeyDown={enlarge}
