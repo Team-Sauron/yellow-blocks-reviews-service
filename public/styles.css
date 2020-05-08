@@ -3,7 +3,6 @@
 .customerReviewsWrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border-bottom: 1px solid rgb(205, 205, 177);
   grid-template-areas:
     "d d d d d d d"
     "a b b b b b c";
@@ -22,7 +21,7 @@
   border-top: 1px solid rgb(205, 205, 177);
   padding: 20px 0;
   width: 100%;
-  background: white;
+  background-color: #f8f8f8;
   text-align: left;
   outline: none;
   cursor: pointer;
@@ -79,8 +78,8 @@
   border-radius: 5px;
   max-width: 500px;
   min-height: 300px;
-  top: 50%;
-  left: 60%;
+  top: 5    0%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 .modalBtn {
@@ -149,7 +148,6 @@
 }
 
 .reviewStar {
-  font-size: 18px;
   margin: 10px 50px 10px 0;
 }
 
@@ -198,6 +196,7 @@
 .helpful {
   grid-area: e;
   font-size: 14px;
+  margin-bottom: 20px;
 }
 .helpful>div {
   margin-bottom: 10px;
