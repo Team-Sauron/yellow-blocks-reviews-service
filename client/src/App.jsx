@@ -52,11 +52,13 @@ class App extends Component {
       isOpen, average, reviews,
     } = this.state;
     return (
-      <div>
-        <div>
+      <div className="customerReviewsWrapper">
+        <div className="customerReviewsAccordion">
           <button type="button" className={`navBar ${isOpen ? 'isOpen' : null}`} onClick={this.toggleAccordian}>
             Customer Reviews
           </button>
+        </div>
+        <div className="customerReviews">
           <Accordian isOpen={isOpen}>
             <Ratings
               rating={average}

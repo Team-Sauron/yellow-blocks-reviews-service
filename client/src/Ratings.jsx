@@ -5,9 +5,10 @@ import Bricks from './Bricks';
 const Ratings = ({ rating }) => (
   <div>
     <div className="overallRating">
-      <div className="overallHead">
+      <span className="overallHead">
         Overall Rating
-      </div>
+        <a className="writeReview" href="https://www.youtube.com/watch?v=EyoutEHpPAU">Write a Review</a>
+      </span>
 
       <div>
         <div className="testHeader">
