@@ -2,14 +2,12 @@
 
 .customerReviewsWrapper {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-gap: 10px;
+  grid-template-columns: repeat(7, 1fr);
   border-bottom: 1px solid rgb(205, 205, 177);
   grid-template-areas:
-    "d d d d d d d d"
-    "a b b b b b b c"
-    "a b b b b b b c"
-    "a b b b b b b c";
+    "d d d d d d d"
+    "a b b b b b c";
+  font-family: 'Poppins', sans-serif;
 }
 
 .customerReviewsAccordion {
@@ -20,31 +18,30 @@
 }
 
 .navBar {
-  display: flex;
   border: none;
   border-top: 1px solid rgb(205, 205, 177);
-  padding: 20px 0 20px 240px;
+  padding: 20px 0;
   width: 100%;
-  background: whitesmoke;
-  font-family: 'Courier New', Courier, monospace;
+  background: white;
   text-align: left;
   outline: none;
   cursor: pointer;
   font-size: 20px;
-  font-weight: bold;
   align-items: center;
+  text-indent: 15%;
 }
 .navBar:after {
   content: '⊕';
-  font-size: 35px;
-  margin-left: auto;
-  margin-right: 240px;
+  font-size: 25px;
+  float: right;
+  padding-right: 15%;
 }
 .isOpen:after {
   content: "⊖";
 }
 .disclaimer {
   font-size: small;
+  font-style: italic;
   margin: 12px 0 0 0;
 }
 
@@ -56,7 +53,6 @@
   text-align: left;
   margin: 10px 0;
   background-color: white;
-  font-family: 'Courier New', Courier, monospace;
 }
 
 /* MODAL */
@@ -116,7 +112,7 @@
 
 .gridWrapper {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
   grid-gap: 10px;
   border-bottom: 1px solid rgb(205, 205, 177);
 }
@@ -186,12 +182,12 @@
   border-bottom: 1px solid rgb(205, 205, 177);
 }
 .reviewWrapper>div {
-  font-size: 18px;
   padding: 0 0 10px 0;
 }
 .reviewText {
   grid-area: a;
-  align-self: start
+  align-self: start;
+  font-size: 16px;
 }
 .reviewRating {
   grid-area: b;
@@ -201,6 +197,10 @@
 }
 .helpful {
   grid-area: e;
+  font-size: 14px;
+}
+.helpful>div {
+  margin-bottom: 10px;
 }
 
 .showMore {
