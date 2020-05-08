@@ -19,8 +19,11 @@ span {
 `;
 
 const Accordian = styled.div`
-  padding: ${(props) => (props.isOpen ? '10px 0' : '0')};
-  transition: all 0.5s;
+  padding: ${(props) => (props.isOpen ? '1em 0' : '0')};
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  line-height: 1em;
+  height: ${(props) => (props.isOpen ? 'auto' : '4em')};
 `;
 
 class Review extends Component {
@@ -34,7 +37,6 @@ class Review extends Component {
     };
 
     this.handleThumbs = this.handleThumbs.bind(this);
-    this.handleShow = this.handleShow.bind(this);
     this.toggleShow = this.toggleShow.bind(this);
   }
 
@@ -59,16 +61,6 @@ class Review extends Component {
     }
   }
 
-  handleShow() {
-    const { isOpen } = this.state;
-    const { review } = this.props;
-    const text = review.text.split('.');
-    if (isOpen) {
-      return [text.join('. ')];
-    }
-    return [text.splice(0, 10).join('. ')];
-  }
-
   toggleShow() {
     this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   }
@@ -88,22 +80,18 @@ class Review extends Component {
 
           <div className="reviewText">
             <Accordian isOpen={isOpen}>
-              {this.handleShow().map((str, id) => (
-                <div key={id}>{str}</div>
-              ))}
-              {(review.text.split('.').length > 10)
-              && (
-              <button className="showMore" type="submit" onClick={this.toggleShow}>
-                {isOpen ? 'Show Less' : 'Show More'}
-              </button>
-              )}
+              <div>
+                {review.text}
+              </div>
             </Accordian>
+            <button className="showMore" type="submit" onClick={this.toggleShow}>
+              {isOpen ? 'Show Less' : 'Show More'}
+            </button>
           </div>
 
           <div className="pic">
             <Pictures pictures={pictures} />
           </div>
-
 
           <div className="helpful">
             <div>Was this helpful?</div>
