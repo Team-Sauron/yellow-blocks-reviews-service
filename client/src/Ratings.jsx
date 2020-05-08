@@ -7,7 +7,7 @@ const Ratings = ({ rating }) => (
     <div className="overallRating">
       <span className="overallHead">
         Overall Rating
-        <a className="writeReview" href="https://www.youtube.com/watch?v=EyoutEHpPAU">Write a Review</a>
+        <a className="writeReview" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=EyoutEHpPAU">Write a Review</a>
       </span>
 
       <div>
