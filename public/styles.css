@@ -32,14 +32,16 @@
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
+  align-items: center;
 }
 .navBar:after {
-  content: '+';
+  content: '⊕';
+  font-size: 35px;
   margin-left: auto;
   margin-right: 240px;
 }
 .isOpen:after {
-  content: "-";
+  content: "⊖";
 }
 .disclaimer {
   font-size: small;
