@@ -1,10 +1,29 @@
 /* APP */
 
+.customerReviewsWrapper {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 10px;
+  border-bottom: 1px solid rgb(205, 205, 177);
+  grid-template-areas:
+    "d d d d d d d d"
+    "a b b b b b b c"
+    "a b b b b b b c"
+    "a b b b b b b c";
+}
+
+.customerReviewsAccordion {
+  grid-area: d;
+}
+.customerReviews {
+  grid-area: b;
+}
+
 .navBar {
   display: flex;
   border: none;
   border-top: 1px solid rgb(205, 205, 177);
-  padding: 20px 0 20px 25px;
+  padding: 20px 0 20px 240px;
   width: 100%;
   background: whitesmoke;
   font-family: 'Courier New', Courier, monospace;
@@ -12,15 +31,17 @@
   outline: none;
   cursor: pointer;
   font-size: 20px;
-  color: black  ;
+  font-weight: bold;
+  align-items: center;
 }
 .navBar:after {
-  content: '+';
+  content: '⊕';
+  font-size: 35px;
   margin-left: auto;
-  margin-right: 30px;
+  margin-right: 240px;
 }
 .isOpen:after {
-  content: "-";
+  content: "⊖";
 }
 .disclaimer {
   font-size: small;
@@ -63,7 +84,7 @@
   max-width: 500px;
   min-height: 300px;
   top: 50%;
-  left: 50%;
+  left: 60%;
   transform: translate(-50%, -50%);
 }
 .modalBtn {
@@ -136,6 +157,19 @@
   margin: 10px 50px 10px 0;
 }
 
+.writeReview {
+  background-color: rgb(0, 81, 255);
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  float: right;
+  cursor: pointer;
+}
+
 /* REVIEW */
 
 .reviewWrapper {
@@ -144,10 +178,9 @@
   grid-gap: 10px;
   border-bottom: 1px solid rgb(205, 205, 177);
   grid-template-areas:
-    "a a a a a b b b"
-    "a a a a a b b b"
-    "c c c c d d d d"
-    "e e e e d d d d";
+    "a a a a a f b b"
+    "c c c c c f b b"
+    "e e e e e d d d";
 }
 .review {
   border-bottom: 1px solid rgb(205, 205, 177);
@@ -184,7 +217,7 @@
   margin: 15px 0 15px 0;
 }
 .side>div {
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
 }
 
 .up, .down {

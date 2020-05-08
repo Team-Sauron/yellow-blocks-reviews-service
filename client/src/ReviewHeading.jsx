@@ -22,7 +22,7 @@ const ReviewHeader = ({ review, user }) => (
       </div>
 
       <div>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{ textDecoration: 'none' }}>{user.name}</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{ textDecoration: 'none' }}>{user.name}</a>
         {' '}
         |
         {' '}

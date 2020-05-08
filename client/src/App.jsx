@@ -52,18 +52,20 @@ class App extends Component {
       isOpen, average, reviews,
     } = this.state;
     return (
-      <div>
-        <div>
+      <div className="customerReviewsWrapper">
+        <div className="customerReviewsAccordion">
           <button type="button" className={`navBar ${isOpen ? 'isOpen' : null}`} onClick={this.toggleAccordian}>
             Customer Reviews
           </button>
+        </div>
+        <div className="customerReviews">
           <Accordian isOpen={isOpen}>
             <Ratings
               rating={average}
             />
             <div className="disclaimer">
               Please note that by submitting a helpfulness vote on a review your IP address is collected and stored by our trusted third party service provider for the sole purpose of preventing multiple entries from the same IP address. To see how to control your personal data, please see our
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" style={{ textDecoration: 'none' }}> Privacy policy</a>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}> Privacy policy</a>
               .
             </div>
             <br />
