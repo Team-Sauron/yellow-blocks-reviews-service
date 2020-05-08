@@ -179,9 +179,8 @@
   border-bottom: 1px solid rgb(205, 205, 177);
   grid-template-areas:
     "a a a a a f b b"
-    "a a a a a f b b"
-    "c c c c d d d d"
-    "e e e e d d d d";
+    "c c c c c f b b"
+    "e e e e e d d d";
 }
 .review {
   border-bottom: 1px solid rgb(205, 205, 177);
