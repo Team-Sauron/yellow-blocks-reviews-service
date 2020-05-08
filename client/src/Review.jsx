@@ -18,6 +18,11 @@ span {
 }
 `;
 
+const Accordian = styled.div`
+  padding: ${(props) => (props.isOpen ? '10px 0' : '0')};
+  transition: all 0.5s;
+`;
+
 class Review extends Component {
   constructor(props) {
     super(props);
@@ -82,15 +87,17 @@ class Review extends Component {
         <div className="reviewWrapper">
 
           <div className="reviewText">
-            {this.handleShow().map((str, id) => (
-              <div key={id}>{str}</div>
-            ))}
-            {(review.text.split('.').length > 10)
+            <Accordian isOpen={isOpen}>
+              {this.handleShow().map((str, id) => (
+                <div key={id}>{str}</div>
+              ))}
+              {(review.text.split('.').length > 10)
               && (
               <button className="showMore" type="submit" onClick={this.toggleShow}>
                 {isOpen ? 'Show Less' : 'Show More'}
               </button>
               )}
+            </Accordian>
           </div>
 
           <div className="pic">
