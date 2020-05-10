@@ -13,8 +13,7 @@ const ReviewHeader = ({ review, user }) => (
         <Stars
           stars={review.rating}
         />
-        {review.rating}
-        .0
+        {Number.parseFloat(review.rating).toFixed(1)}
       </div>
 
       <div>
