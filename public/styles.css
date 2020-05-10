@@ -73,7 +73,7 @@
   border-radius: 5px;
   max-width: 500px;
   min-height: 300px;
-  top: 5    0%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -107,7 +107,6 @@
 .gridWrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-gap: 10px;
   border-bottom: 1px solid rgb(205, 205, 177);
 }
 
@@ -211,7 +210,7 @@
   margin: 15px 0 15px 0;
 }
 .side>div {
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
 }
 
 .up, .down {
@@ -220,14 +219,14 @@
 
 /* Stars */
 
-.Stars, .Bricks  {
+.Stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   font-size: 25px;
   background:white;
   margin: 0 10px 0 0;
 }
-.Stars::before, .Bricks::before {
+.Stars::before {
   content: '★★★★★';
   background: linear-gradient(90deg, gold var(--percent), gray var(--percent));
   -webkit-background-clip: text;
@@ -235,6 +234,30 @@
   background-clip: text;
 }
 
-.Bricks::before {
-  content: '♠♠♠♠♠';
+.SVGBricks {
+  display: flex;
+  width: auto;
+  height: 25px;
+}
+.SVGBricks .brick {
+  margin-right: 1px;
+}
+
+.brickWrapper, .sideWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "a b";
+}
+.brickWrapper {
+  grid-template-columns: repeat(5, 1fr);
+  margin-left: 20px;
+}
+.brick, .sideBrick {
+  grid-area: a;
+}
+.expRating, .sideRating {
+  grid-area: b;
+  margin-left: 15px;
+  align-self: center;
 }
