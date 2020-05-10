@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { BsPlusCircle } from 'react-icons/bs';
+import { AiOutlineMinusCircle } from 'react-icons/ai';
 
 import Ratings from './Ratings';
 import ReviewsList from './ReviewsList';
@@ -56,6 +58,7 @@ class App extends Component {
         <div className="customerReviewsAccordion">
           <button type="button" className={`navBar ${isOpen ? 'isOpen' : null}`} onClick={this.toggleAccordian}>
             Customer Reviews
+            <div className="openClose">{isOpen ? <AiOutlineMinusCircle /> : <BsPlusCircle /> }</div>
           </button>
         </div>
         <div className="customerReviews">
