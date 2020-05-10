@@ -107,7 +107,6 @@
 .gridWrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-gap: 10px;
   border-bottom: 1px solid rgb(205, 205, 177);
 }
 
@@ -126,6 +125,10 @@
 }
 .overall {
   margin: 0 0 20px 20px;
+}
+
+.expRating {
+  margin-right: 10%;
 }
 
 .overallStar, .reviewBar, .reviewStar, .flexRating, .testHeader {
@@ -220,14 +223,14 @@
 
 /* Stars */
 
-.Stars, .Bricks  {
+.Stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
   font-size: 25px;
   background:white;
   margin: 0 10px 0 0;
 }
-.Stars::before, .Bricks::before {
+.Stars::before {
   content: '★★★★★';
   background: linear-gradient(90deg, gold var(--percent), gray var(--percent));
   -webkit-background-clip: text;
@@ -235,6 +238,11 @@
   background-clip: text;
 }
 
-.Bricks::before {
-  content: '♠♠♠♠♠';
+.SVGBricks {
+  display: flex;
+  width: auto;
+  height: 25px;
+}
+.SVGBricks .brick {
+  margin-right: 1px;
 }
