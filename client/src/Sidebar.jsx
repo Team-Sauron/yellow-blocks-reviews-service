@@ -5,34 +5,43 @@ const Sidebar = ({ review, user }) => (
   <div className="spaceOut side">
     <div>
       Play Experience
-      <div className="headingBG flexRating">
-        <Bricks
-          bricks={review.play}
-        />
-        {review.play}
-        .0
+      <div className="sideWrapper">
+        <div className="sideBrick">
+          <Bricks
+            bricks={review.play}
+          />
+        </div>
+        <div className="sideRating">
+          {Number.parseFloat(review.play).toFixed(1)}
+        </div>
       </div>
     </div>
 
     <div>
       Level of Difficulty
-      <div className="headingBG flexRating">
-        <Bricks
-          bricks={review.difficulty}
-        />
-        {review.difficulty}
-        .0
+      <div className="sideWrapper">
+        <div className="sideBrick">
+          <Bricks
+            bricks={review.difficulty}
+          />
+        </div>
+        <div className="sideRating">
+          {Number.parseFloat(review.difficulty).toFixed(1)}
+        </div>
       </div>
     </div>
 
     <div>
       Value for Money
-      <div className="headingBG flexRating">
-        <Bricks
-          bricks={review.value}
-        />
-        {review.value}
-        .0
+      <div className="sideWrapper">
+        <div className="sideBrick">
+          <Bricks
+            bricks={review.value}
+          />
+        </div>
+        <div className="sideRating">
+          {Number.parseFloat(review.value).toFixed(1)}
+        </div>
       </div>
     </div>
 

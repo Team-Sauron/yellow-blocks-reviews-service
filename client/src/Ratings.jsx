@@ -96,7 +96,7 @@ const Ratings = ({ rating }) => (
             />
           </div>
           <div className="expRating">
-            {`${(rating.play / 4)}`}
+            {`${Number.parseFloat(rating.play / 4).toFixed(1)}`}
           </div>
         </div>
 
@@ -110,7 +110,7 @@ const Ratings = ({ rating }) => (
             />
           </div>
           <div className="expRating">
-            {`${(rating.difficulty / 4)}`}
+            {`${Number.parseFloat(rating.difficulty / 4).toFixed(1)}`}
           </div>
         </div>
 
@@ -124,7 +124,7 @@ const Ratings = ({ rating }) => (
             />
           </div>
           <div className="expRating">
-            {`${(rating.value / 4)}`}
+            {`${Number.parseFloat(rating.value / 4).toFixed(1)}`}
           </div>
         </div>
       </div>
