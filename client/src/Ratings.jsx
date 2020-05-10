@@ -89,10 +89,12 @@ const Ratings = ({ rating }) => (
         <div className="exp">
           Play Experience
         </div>
-        <div className="overallStar">
-          <Bricks
-            bricks={rating.play / 4}
-          />
+        <div className="brickWrapper">
+          <div className="brick">
+            <Bricks
+              bricks={rating.play / 4}
+            />
+          </div>
           <div className="expRating">
             {`${(rating.play / 4)}`}
           </div>
@@ -101,10 +103,12 @@ const Ratings = ({ rating }) => (
         <div className="exp">
           Level of Difficulty
         </div>
-        <div className="overallStar ">
-          <Bricks
-            bricks={rating.difficulty / 4}
-          />
+        <div className="brickWrapper">
+          <div className="brick">
+            <Bricks
+              bricks={rating.difficulty / 4}
+            />
+          </div>
           <div className="expRating">
             {`${(rating.difficulty / 4)}`}
           </div>
@@ -113,10 +117,12 @@ const Ratings = ({ rating }) => (
         <div className="exp">
           Value for Money
         </div>
-        <div className="overallStar ">
-          <Bricks
-            bricks={rating.value / 4}
-          />
+        <div className="brickWrapper">
+          <div className="brick">
+            <Bricks
+              bricks={rating.value / 4}
+            />
+          </div>
           <div className="expRating">
             {`${(rating.value / 4)}`}
           </div>
