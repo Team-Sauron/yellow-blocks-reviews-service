@@ -29,14 +29,9 @@
   align-items: center;
   text-indent: 15%;
 }
-.navBar:after {
-  content: '⊕';
-  font-size: 25px;
+.openClose {
   float: right;
   padding-right: 15%;
-}
-.isOpen:after {
-  content: "⊖";
 }
 .disclaimer {
   font-size: small;
