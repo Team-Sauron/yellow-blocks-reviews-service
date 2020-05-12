@@ -2,15 +2,26 @@ const express = require('express');
 
 const app = express();
 const path = require('path');
+const expressStaticGzip = require('express-static-gzip');
+const compression = require('compression');
 const db = require('../db');
 
 const port = 3003;
 
+const dirPath = path.join(__dirname, '../public');
+
+app.use(compression({ chunkSize: 16384 }));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(dirPath, expressStaticGzip(dirPath, {
+  enableBrotli: true,
+  orderPreference: ['br', 'gz'],
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  },
+})));
 app.use(express.json());
 
 const average = (arr) => {
