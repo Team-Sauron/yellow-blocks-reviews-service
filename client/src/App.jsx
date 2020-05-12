@@ -35,6 +35,9 @@ class App extends Component {
   getReviews() {
     let id = window.location.href;
     id = id.slice(id.indexOf('=') + 1);
+    if (id === 'http://localhost:3003/') {
+      id = 1;
+    }
     axios.get(`http://localhost:3003/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
@@ -55,41 +58,45 @@ class App extends Component {
     } = this.state;
     return (
       <div className="customerReviewsWrapper">
+
         <div className="customerReviewsAccordion">
           <button type="button" className={`navBar ${isOpen ? 'isOpen' : null}`} onClick={this.toggleAccordian}>
             Customer Reviews
             <div className="openClose">{isOpen ? <AiOutlineMinusCircle /> : <BsPlusCircle /> }</div>
           </button>
         </div>
+
         <div className="customerReviews">
           <Accordian isOpen={isOpen}>
-            <Ratings
-              rating={average}
-            />
+
+            <Ratings rating={average} />
+
             <div className="disclaimer">
               Please note that by submitting a helpfulness vote on a review your IP address is collected and stored by our trusted third party service provider for the sole purpose of preventing multiple entries from the same IP address. To see how to control your personal data, please see our
               <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}> Privacy policy</a>
               .
             </div>
             <br />
+
             <div className="overallTitle review">
               <div>
                 <b>Reviews</b>
               </div>
               <select className="sortBy selectBar" defaultValue="Relevant">
-                <option value="dateNF">Date - Newest First</option>
-                <option value="dateOF">Date - Oldest First</option>
-                <option value="RHtL">Rating - High to Low</option>
-                <option value="RLtH">Rating - Low to High</option>
+                <option value="newestFirst">Date - Newest First</option>
+                <option value="oldestFirst">Date - Oldest First</option>
+                <option value="highToLow">Rating - High to Low</option>
+                <option value="lowToHigh">Rating - Low to High</option>
                 <option value="Helpfulness">Helpfulness</option>
                 <option value="Relevant">Most Relevant</option>
               </select>
             </div>
-            <ReviewsList
-              reviews={reviews}
-            />
+
+            <ReviewsList reviews={reviews} />
+
           </Accordian>
         </div>
+
       </div>
     );
   }

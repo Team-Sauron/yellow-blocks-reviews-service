@@ -4,16 +4,15 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-areas:
-    "d d d d d d d"
-    "a b b b b b c";
+    "a a a a a a a"
+    "b c c c c c d";
   font-family: 'Poppins', sans-serif;
 }
-
 .customerReviewsAccordion {
-  grid-area: d;
+  grid-area: a;
 }
 .customerReviews {
-  grid-area: b;
+  grid-area: c;
 }
 
 .navBar {
@@ -90,13 +89,13 @@
 
 /* REVIEW BAR */
 
-.bg {
+.ratingBar {
   background-color: rgb(205, 205, 177);
   border-radius: 10px;
   width: 150px;
   margin: 0 20px 0 20px;
 }
-.bg>div {
+.ratingBar>div {
   background-color: rgb(255,237,0);
   height: 20px;
   border-radius: 10px 0 0 10px;
@@ -120,27 +119,25 @@
 .overallHead {
   margin: 0 0 10px 0;
 }
-.exp {
+.expBar {
   margin: 5px 20px 5px 20px;
 }
 .overall {
   margin: 0 0 20px 20px;
 }
 
-.overallStar, .reviewBar, .reviewStar, .flexRating, .testHeader {
+.overallStar, .reviewBar, .reviewStar, .testHeader {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   align-content: space-between;
 }
-.reviewBar {
-  margin: 0 50px 0 0;
-}
-
 .overallStar {
   margin: 0 0 0 20px;
 }
-
+.reviewBar {
+  margin: 0 50px 0 0;
+}
 .reviewStar {
   margin: 10px 50px 10px 0;
 }
@@ -168,7 +165,7 @@
   grid-template-areas:
     "a a a a a f b b"
     "c c c c c f b b"
-    "e e e e e d d d";
+    "e e e e e f d d";
 }
 .review {
   border-bottom: 1px solid rgb(205, 205, 177);

@@ -49,7 +49,6 @@ app.get('/api/reviews/:id', (req, res) => {
     id = 1;
   }
   const reviewsNum = id * 4 - 4;
-
   const resultArr = [];
 
   return db.getAverage(reviewsNum)

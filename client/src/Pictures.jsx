@@ -3,8 +3,7 @@ import Modal from './Modal';
 
 const Pictures = ({ pictures }) => (
   <div className="picture">
-    {(pictures)
-      && (
+    {pictures && (
       <div>
         {Object.values(pictures).map((pic, id) => (
           <Modal
@@ -13,7 +12,7 @@ const Pictures = ({ pictures }) => (
           />
         ))}
       </div>
-      )}
+    )}
   </div>
 );
 
