@@ -12,6 +12,7 @@ const Accordian = styled.div`
   max-height: ${(props) => (props.isOpen ? '100%' : '0')};
   padding: ${(props) => (props.isOpen ? '15px' : '0 15px')};
   transition: all 0.2s;
+  overflow: hidden;
 `;
 
 class App extends Component {
@@ -33,12 +34,12 @@ class App extends Component {
   }
 
   getReviews() {
-    let id = window.location.href;
-    id = id.slice(id.indexOf('=') + 1);
-    if (id === 'http://localhost:3003/') {
-      id = 1;
+    const { href } = window.location;
+    let id = 1;
+    if (href.indexOf('=') !== -1) {
+      id = href.slice(href.indexOf('=') + 1);
     }
-    axios.get(`http://localhost:3003/api/reviews/${id}`)
+    axios.get(`http://54.176.252.119/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
           average: reviews.data[0],
