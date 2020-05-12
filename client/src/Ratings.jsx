@@ -34,7 +34,7 @@ const Ratings = ({ rating }) => (
 
         <div className="reviewBar">
           <div>5 stars</div>
-          <div className="bg">
+          <div className="ratingBar">
             <div style={{ width: `${(rating.five / rating.totalReviews) * 100}%` }} />
           </div>
           <div>
@@ -45,7 +45,7 @@ const Ratings = ({ rating }) => (
 
         <div className="reviewBar">
           4 stars
-          <div className="bg">
+          <div className="ratingBar">
             <div style={{ width: `${(rating.four / rating.totalReviews) * 100}%` }} />
           </div>
           {`${rating.four} Reviews`}
@@ -54,7 +54,7 @@ const Ratings = ({ rating }) => (
 
         <div className="reviewBar">
           3 stars
-          <div className="bg">
+          <div className="ratingBar">
             <div style={{ width: `${(rating.three / rating.totalReviews) * 100}%` }} />
           </div>
           {`${rating.three} Reviews`}
@@ -63,7 +63,7 @@ const Ratings = ({ rating }) => (
 
         <div className="reviewBar">
           2 stars
-          <div className="bg">
+          <div className="ratingBar">
             <div style={{ width: `${(rating.two / rating.totalReviews) * 100}%` }} />
           </div>
           {`${rating.two} Reviews`}
@@ -72,7 +72,7 @@ const Ratings = ({ rating }) => (
 
         <div className="reviewBar">
           1 stars
-          <div className="bg">
+          <div className="ratingBar">
             <div style={{ width: `${(rating.one / rating.totalReviews) * 100}%` }} />
           </div>
           {`${rating.one} Reviews`}
@@ -86,7 +86,7 @@ const Ratings = ({ rating }) => (
           Overall Experience
         </div>
 
-        <div className="exp">
+        <div className="expBar">
           Play Experience
         </div>
         <div className="brickWrapper">
@@ -100,7 +100,7 @@ const Ratings = ({ rating }) => (
           </div>
         </div>
 
-        <div className="exp">
+        <div className="expBar">
           Level of Difficulty
         </div>
         <div className="brickWrapper">
@@ -114,7 +114,7 @@ const Ratings = ({ rating }) => (
           </div>
         </div>
 
-        <div className="exp">
+        <div className="expBar">
           Value for Money
         </div>
         <div className="brickWrapper">

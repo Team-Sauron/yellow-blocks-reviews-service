@@ -52,25 +52,25 @@ const full = (
 
 const Bricks = ({ bricks }) => {
   let rate = (bricks);
-  const arr = [];
+  const bricksArray = [];
 
   for (let i = 0; i < 5; i += 1) {
     if (rate >= 1) {
-      arr.push(full);
+      bricksArray.push(full);
       rate -= 1;
     } else if (rate < 1 && rate > 0) {
-      arr.push(half);
+      bricksArray.push(half);
       rate -= rate;
     } else {
-      arr.push(empty);
+      bricksArray.push(empty);
     }
   }
 
   return (
     <div className="SVGBricks">
-      {arr.map((svg, i) => (
+      {bricksArray.map((brick, i) => (
         <div className="brick" key={i}>
-          {svg}
+          {brick}
         </div>
       ))}
     </div>

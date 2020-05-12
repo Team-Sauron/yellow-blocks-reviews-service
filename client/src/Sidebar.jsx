@@ -3,6 +3,7 @@ import Bricks from './Bricks';
 
 const Sidebar = ({ review, user }) => (
   <div className="spaceOut side">
+
     <div>
       Play Experience
       <div className="sideWrapper">

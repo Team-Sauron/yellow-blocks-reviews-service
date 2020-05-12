@@ -20,10 +20,10 @@ span {
 
 const Accordian = styled.div`
   padding: ${(props) => (props.isOpen ? '1em 0' : '0')};
+  height: ${(props) => (props.isOpen ? 'auto' : '4em')};
   transition: all 0.5s ease-in-out;
   overflow: hidden;
   line-height: 1em;
-  height: ${(props) => (props.isOpen ? 'auto' : '4em')};
 `;
 
 class Review extends Component {

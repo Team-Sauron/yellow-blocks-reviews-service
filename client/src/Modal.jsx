@@ -2,18 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Modal = ({ picture }) => {
   const [popUp, setPopUp] = useState(false);
-  const outside = useRef();
+  const currentPic = useRef();
 
   const handleClick = (e) => {
-    if (outside.current.contains(e.target)) {
+    if (currentPic.current.contains(e.target)) {
       return;
     }
     setPopUp(false);
   };
 
-  const enlarge = () => {
-    setPopUp(!popUp);
-  };
+  const enlarge = () => { setPopUp(!popUp); };
 
   useEffect(() => {
     const getClick = document.addEventListener('click', handleClick);
@@ -29,16 +27,17 @@ const Modal = ({ picture }) => {
   }, [popUp]);
 
   return (
-
     <span>
+
       <img
         className="IssaPicture"
-        ref={outside}
+        ref={currentPic}
         onClick={enlarge}
         onKeyDown={enlarge}
         src={picture}
         alt="IssaPicture"
       />
+
       {popUp ? (
         <div className="backdrop">
           <img
@@ -57,8 +56,8 @@ const Modal = ({ picture }) => {
           </button>
         </div>
       ) : null}
-    </span>
 
+    </span>
   );
 };
 export default Modal;
