@@ -1,34 +1,12 @@
 const faker = require('faker');
 const db = require('./index.js');
 
-const urlArr = [
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/01',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/02',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/03',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/04',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/05',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/06',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/07',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/08',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/09',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/10',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/11',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/12',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/13',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/14',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/15',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/16',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/17',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/18',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/19',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/20',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/21',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/22',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/23',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/24',
-  'https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/25',
-];
+const urlArr = [];
 let start = 0;
+
+for (let i = 1; i < 26; i += 1) {
+  urlArr.push(`https://fec-reviews-pics.s3-us-west-1.amazonaws.com/WebP/${(`0${i}`).slice(-2)}`);
+}
 
 const urlGrab = () => {
   const limit = faker.random.number({ min: 1, max: 5 });
