@@ -10,6 +10,7 @@ const Accordian = styled.div`
   height: ${(props) => (props.isOpen ? 'auto' : '4em')};
   transition: all 0.5s ease-in-out;
   overflow: hidden;
+  white-space: pre-line;
   line-height: 1em;
 `;
 
