@@ -1,22 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { MdThumbUp, MdThumbDown } from 'react-icons/md';
 import ReviewHeading from './ReviewHeading';
 import Sidebar from './Sidebar';
 import Pictures from './Pictures';
-
-const Thumbs = styled.span`
-span {
-  padding-left: 15px;
-  color: transparent;
-  transition: all 0.2s;
-}
-.up {
-  text-shadow: ${(props) => (props.upvote ? '0 0 0 dodgerBlue' : '0 0 0 gray')};
-}
-.down {
-  text-shadow: ${(props) => (props.downvote ? '0 0 0 red' : '0 0 0 gray')};
-}
-`;
 
 const Accordian = styled.div`
   padding: ${(props) => (props.isOpen ? '1em 0' : '0')};
@@ -40,18 +27,18 @@ class Review extends Component {
     this.toggleShow = this.toggleShow.bind(this);
   }
 
-  handleThumbs(e) {
+  handleThumbs(e, str) {
     const { upvote, downvote } = this.state;
     const { thumbs } = this.props;
     e.preventDefault();
-    if (e.target.ariaLabel === 'thumbup') {
+    if (str === 'up') {
       if (!upvote) {
         thumbs.yes += 1;
       } else {
         thumbs.yes -= 1;
       }
       this.setState((prevState) => ({ upvote: !prevState.upvote }));
-    } else {
+    } else if (str === 'down') {
       if (!downvote) {
         thumbs.no += 1;
       } else {
@@ -96,19 +83,18 @@ class Review extends Component {
           <div className="helpful">
             <div>Was this helpful?</div>
 
-            <Thumbs upvote={upvote}>
-              <span className="up" role="presentation" aria-label="thumbup" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-                👍
+            <div>
+              <span className="up" role="presentation" aria-label="thumbup" onClick={(up) => this.handleThumbs(up, 'up')} onKeyDown={this.handleThumbs}>
+                <MdThumbUp style={{ color: `${upvote ? '#006db7' : '#cacaca'}` }} size={25} />
               </span>
               {thumbs.yes}
-            </Thumbs>
 
-            <Thumbs downvote={downvote}>
-              <span className="down" role="presentation" aria-label="thumbdown" onClick={this.handleThumbs} onKeyDown={this.handleThumbs}>
-                👎
+              <span className="down" role="presentation" aria-label="thumbdown" onClick={(down) => this.handleThumbs(down, 'down')} onKeyDown={this.handleThumbs}>
+                <MdThumbDown style={{ color: `${downvote ? 'red' : '#cacaca'}` }} size={25} />
               </span>
               {thumbs.no}
-            </Thumbs>
+            </div>
+
           </div>
 
           <div className="reviewRating">
