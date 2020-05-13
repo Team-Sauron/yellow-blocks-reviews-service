@@ -30,12 +30,13 @@ const Modal = ({ picture }) => {
     <span>
 
       <img
-        className="IssaPicture"
+        className="reviewPicture"
         ref={currentPic}
         onClick={enlarge}
         onKeyDown={enlarge}
-        src={picture}
-        alt="IssaPicture"
+        src={`${picture}.webp`}
+        alt="ReviewPicture"
+        srcSet={`${picture}_small.webp 100w, ${picture}_medium.webp 400w`}
       />
 
       {popUp ? (
@@ -43,7 +44,8 @@ const Modal = ({ picture }) => {
           <img
             className="modal"
             src={picture}
-            alt="IssaModal"
+            alt="pictureModal"
+            srcSet={`${picture}_small.webp 100w, ${picture}_medium.webp 400w`}
           />
           <button
             className="modalBtn"
