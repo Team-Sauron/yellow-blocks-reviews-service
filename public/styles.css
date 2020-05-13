@@ -192,6 +192,10 @@
 .helpful>div {
   margin-bottom: 10px;
 }
+.helpful>div>span {
+  padding-left: 15px;
+  transition: all 0.2s;
+}
 
 .showMore {
   background: none;

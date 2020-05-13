@@ -3,3 +3,4 @@ public/bundle.js
 testdata
 .vscode
 ~
+server/url.js

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { BsPlusCircle } from 'react-icons/bs';
 import { AiOutlineMinusCircle } from 'react-icons/ai';
-
 import Ratings from './Ratings';
 import ReviewsList from './ReviewsList';
+import { url } from '../../server/url';
 
 const Accordian = styled.div`
   opacity: ${(props) => (props.isOpen ? '1' : '0')};
@@ -39,7 +39,7 @@ class App extends Component {
     if (href.indexOf('=') !== -1) {
       id = href.slice(href.indexOf('=') + 1);
     }
-    axios.get(`http://54.176.252.119/api/reviews/${id}`)
+    axios.get(`${url}/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
           average: reviews.data[0],
