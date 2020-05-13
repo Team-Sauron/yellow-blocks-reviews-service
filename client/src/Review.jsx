@@ -5,13 +5,6 @@ import ReviewHeading from './ReviewHeading';
 import Sidebar from './Sidebar';
 import Pictures from './Pictures';
 
-const Thumbs = styled.span`
-span {
-  padding-left: 15px;
-  transition: all 0.2s;
-}
-`;
-
 const Accordian = styled.div`
   padding: ${(props) => (props.isOpen ? '1em 0' : '0')};
   height: ${(props) => (props.isOpen ? 'auto' : '4em')};
