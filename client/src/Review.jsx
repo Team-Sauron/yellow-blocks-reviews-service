@@ -86,13 +86,13 @@ class Review extends Component {
             <div>
               <span className="up" role="presentation" aria-label="thumbup" onClick={(up) => this.handleThumbs(up, 'up')} onKeyDown={this.handleThumbs}>
                 <MdThumbUp style={{ color: `${upvote ? '#006db7' : '#cacaca'}` }} size={25} />
-                {thumbs.yes}
               </span>
+              {thumbs.yes}
 
               <span className="down" role="presentation" aria-label="thumbdown" onClick={(down) => this.handleThumbs(down, 'down')} onKeyDown={this.handleThumbs}>
                 <MdThumbDown style={{ color: `${downvote ? 'red' : '#cacaca'}` }} size={25} />
-                {thumbs.no}
               </span>
+              {thumbs.no}
             </div>
 
           </div>
