@@ -6,6 +6,7 @@ import { AiOutlineMinusCircle } from 'react-icons/ai';
 import Ratings from './Ratings';
 import ReviewsList from './ReviewsList';
 import { url } from '../../server/url';
+import styles from '../../public/styles.css';
 
 const Accordian = styled.div`
   opacity: ${(props) => (props.isOpen ? '1' : '0')};

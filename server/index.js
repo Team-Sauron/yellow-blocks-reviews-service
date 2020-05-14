@@ -6,7 +6,7 @@ const expressStaticGzip = require('express-static-gzip');
 const compression = require('compression');
 const db = require('../db');
 
-const port = 8080;
+const port = 3003;
 
 const dirPath = path.join(__dirname, '../public');
 
