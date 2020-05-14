@@ -42,7 +42,7 @@ class App extends Component {
     if (searchParams.get('pid') !== null) {
       id = searchParams.get('pid');
     }
-    axios.get(`http://54.219.25.59/api/reviews/${id}`)
+    axios.get(`${url}/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
           average: reviews.data[0],
