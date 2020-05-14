@@ -35,10 +35,12 @@ class App extends Component {
   }
 
   getReviews() {
-    const { href } = window.location;
     let id = 1;
-    if (href.indexOf('=') !== -1) {
-      id = href.slice(href.indexOf('=') + 1);
+    const { href } = window.location;
+    const query = href.slice(href.indexOf('?'));
+    const searchParams = new URLSearchParams(query);
+    if (searchParams.get('pid') !== null) {
+      id = searchParams.get('pid');
     }
     axios.get(`${url}/api/reviews/${id}`)
       .then((reviews) => {
