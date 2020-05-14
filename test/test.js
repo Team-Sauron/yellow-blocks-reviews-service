@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const pageUrl = 'http://localhost:3003/?pid=1';
+const pageUrl = 'http://54.219.25.59/?pid=1';
 
 let page;
 let browser;
@@ -37,7 +37,7 @@ describe('Page Items', () => {
   test('should have different products', async () => {
     const div = '.testHeader';
     const rating1 = await page.$eval(div, (e) => e.textContent);
-    const newPage = 'http://localhost:3003/?pid=2';
+    const newPage = 'http://54.219.25.59/?pid=2';
     await page.goto(newPage);
     await page.click('.navBar');
     const rating2 = await page.$eval(div, (e) => e.textContent);
