@@ -6,6 +6,7 @@ import { AiOutlineMinusCircle } from 'react-icons/ai';
 import Ratings from './Ratings';
 import ReviewsList from './ReviewsList';
 import { url } from '../../server/url';
+import styles from '../../public/styles.css';
 
 const Accordian = styled.div`
   opacity: ${(props) => (props.isOpen ? '1' : '0')};
@@ -34,12 +35,14 @@ class App extends Component {
   }
 
   getReviews() {
-    const { href } = window.location;
     let id = 1;
-    if (href.indexOf('=') !== -1) {
-      id = href.slice(href.indexOf('=') + 1);
+    const { href } = window.location;
+    const query = href.slice(href.indexOf('?'));
+    const searchParams = new URLSearchParams(query);
+    if (searchParams.get('pid') !== null) {
+      id = searchParams.get('pid');
     }
-    axios.get(`${url}/api/reviews/${id}`)
+    axios.get(`http://54.219.25.59/api/reviews/${id}`)
       .then((reviews) => {
         this.setState({
           average: reviews.data[0],

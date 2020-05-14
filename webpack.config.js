@@ -19,6 +19,15 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
       },
+    },
+    {
+      test: /\.css$/,
+      loader: ['style-loader', 'css-loader'],
+      include: `${__dirname}/public/styles.css`,
+    },
+    {
+      test: /\.svg$/,
+      loader: 'file-loader',
     }],
   },
   resolve: { extensions: ['.js', '.jsx'] },
