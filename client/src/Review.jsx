@@ -4,6 +4,7 @@ import { MdThumbUp, MdThumbDown } from 'react-icons/md';
 import ReviewHeading from './ReviewHeading';
 import Sidebar from './Sidebar';
 import Pictures from './Pictures';
+import styles from '../../public/styles.css';
 
 const Accordian = styled.div`
   padding: ${(props) => (props.isOpen ? '1em 0' : '0')};
@@ -59,38 +60,38 @@ class Review extends Component {
     } = this.props;
     const { isOpen, upvote, downvote } = this.state;
     return (
-      <div className="review">
+      <div className={styles.review}>
         <div>
           <ReviewHeading review={review} user={user} />
         </div>
 
-        <div className="reviewWrapper">
+        <div className={styles.reviewWrapper}>
 
-          <div className="reviewText">
+          <div className={styles.reviewText}>
             <Accordian isOpen={isOpen}>
               <div>
                 {review.text}
               </div>
             </Accordian>
-            <button className="showMore" type="submit" onClick={this.toggleShow}>
+            <button className={styles.showMore} type="submit" onClick={this.toggleShow}>
               {isOpen ? 'Show Less' : 'Show More'}
             </button>
           </div>
 
-          <div className="pic">
+          <div className={styles.pic}>
             <Pictures pictures={pictures} />
           </div>
 
-          <div className="helpful">
+          <div className={styles.helpful}>
             <div>Was this helpful?</div>
 
             <div>
-              <span className="up" role="presentation" aria-label="thumbup" onClick={(up) => this.handleThumbs(up, 'up')} onKeyDown={this.handleThumbs}>
+              <span className={styles.up} role="presentation" aria-label="thumbup" onClick={(up) => this.handleThumbs(up, 'up')} onKeyDown={this.handleThumbs}>
                 <MdThumbUp style={{ color: `${upvote ? '#006db7' : '#cacaca'}` }} size={25} />
               </span>
               {thumbs.yes}
 
-              <span className="down" role="presentation" aria-label="thumbdown" onClick={(down) => this.handleThumbs(down, 'down')} onKeyDown={this.handleThumbs}>
+              <span className={styles.down} role="presentation" aria-label="thumbdown" onClick={(down) => this.handleThumbs(down, 'down')} onKeyDown={this.handleThumbs}>
                 <MdThumbDown style={{ color: `${downvote ? 'red' : '#cacaca'}` }} size={25} />
               </span>
               {thumbs.no}
@@ -98,7 +99,7 @@ class Review extends Component {
 
           </div>
 
-          <div className="reviewRating">
+          <div className={styles.reviewRating}>
             <Sidebar review={review} user={user} />
           </div>
 

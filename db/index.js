@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/smego', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/smego', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 
@@ -61,9 +61,14 @@ const getReviews = (number) => Review.find().limit(4).skip(number);
 
 const getAverage = (number) => Review.find({}, 'overall').limit(4).skip(number);
 
+const disconnect = () => {
+  mongoose.connection.close();
+};
+
 module.exports = {
   Review,
   saveReviews,
   getReviews,
   getAverage,
+  disconnect,
 };

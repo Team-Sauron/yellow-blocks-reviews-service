@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../../public/styles.css';
 
 const empty = (
   <svg width="100%" height="100%" viewBox="0 0 45 33">
@@ -67,9 +68,9 @@ const Bricks = ({ bricks }) => {
   }
 
   return (
-    <div className="SVGBricks">
+    <div className={styles.SVGBricks}>
       {bricksArray.map((brick, i) => (
-        <div className="brick" key={i}>
+        <div className={styles.brick} key={i}>
           {brick}
         </div>
       ))}

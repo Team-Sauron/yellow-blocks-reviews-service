@@ -73,6 +73,7 @@ const dataGen = (num = 400) => {
     const data = seed();
     db.saveReviews(data);
   }
+  db.disconnect();
   return console.log('Seeded!');
 };
 

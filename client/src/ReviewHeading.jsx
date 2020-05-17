@@ -1,15 +1,16 @@
 import React from 'react';
 import moment from 'moment';
 import Stars from './Stars';
+import styles from '../../public/styles.css';
 
 const ReviewHeader = ({ review, user }) => (
-  <div className="spaceOut">
+  <div className={styles.spaceOut}>
 
     <div>
       {moment(review.published).format('MMMM Do, YYYY')}
     </div>
 
-    <div className="reviewStar reviewHeading">
+    <div className={`${styles.reviewStar}`.concat(` ${styles.reviewHeading}`)}>
       <Stars
         stars={review.rating}
       />
@@ -28,7 +29,7 @@ const ReviewHeader = ({ review, user }) => (
       {user.age}
     </div>
 
-    <div className="rate">
+    <div className={styles.rate}>
       <div style={{ color: review.recommendation ? 'green' : 'red' }}>
         {(review.recommendation) ? 'I would recommend this to a friend!' : 'I would not recommend this to a friend!'}
       </div>

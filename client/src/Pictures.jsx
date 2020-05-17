@@ -1,8 +1,9 @@
 import React from 'react';
 import Modal from './Modal';
+import styles from '../../public/styles.css';
 
 const Pictures = ({ pictures }) => (
-  <div className="picture">
+  <div className={styles.picture}>
     {pictures && (
       <div>
         {Object.values(pictures).map((pic, id) => (

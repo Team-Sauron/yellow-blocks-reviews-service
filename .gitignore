@@ -4,3 +4,4 @@ testdata
 .vscode
 ~
 server/url.js
+data

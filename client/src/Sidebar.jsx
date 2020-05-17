@@ -1,18 +1,19 @@
 import React from 'react';
 import Bricks from './Bricks';
+import styles from '../../public/styles.css';
 
 const Sidebar = ({ review, user }) => (
-  <div className="spaceOut side">
+  <div className={`${styles.spaceOut}`.concat(` ${styles.side}`)}>
 
     <div>
       Play Experience
-      <div className="sideWrapper">
-        <div className="sideBrick">
+      <div className={styles.sideWrapper}>
+        <div className={styles.sideBrick}>
           <Bricks
             bricks={review.play}
           />
         </div>
-        <div className="sideRating">
+        <div className={styles.sideRating}>
           {Number.parseFloat(review.play).toFixed(1)}
         </div>
       </div>
@@ -20,13 +21,13 @@ const Sidebar = ({ review, user }) => (
 
     <div>
       Level of Difficulty
-      <div className="sideWrapper">
-        <div className="sideBrick">
+      <div className={styles.sideWrapper}>
+        <div className={styles.sideBrick}>
           <Bricks
             bricks={review.difficulty}
           />
         </div>
-        <div className="sideRating">
+        <div className={styles.sideRating}>
           {Number.parseFloat(review.difficulty).toFixed(1)}
         </div>
       </div>
@@ -34,13 +35,13 @@ const Sidebar = ({ review, user }) => (
 
     <div>
       Value for Money
-      <div className="sideWrapper">
-        <div className="sideBrick">
+      <div className={styles.sideWrapper}>
+        <div className={styles.sideBrick}>
           <Bricks
             bricks={review.value}
           />
         </div>
-        <div className="sideRating">
+        <div className={styles.sideRating}>
           {Number.parseFloat(review.value).toFixed(1)}
         </div>
       </div>
