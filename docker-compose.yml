@@ -1,5 +1,15 @@
 version: "2"
 services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    command: ["./wait-for.sh", "app:3003", "--", "javascript", "app"]
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017
+    networks:
+      - app-network
   app:
     container_name: app
     restart: always
@@ -8,10 +18,8 @@ services:
       - "3003:3003"
     links:
       - mongo
-  mongo:
-    container_name: mongo
-    image: mongo
-    volumes:
-      - ./data:/data/db
-    ports:
-      - 27017
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

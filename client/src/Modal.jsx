@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styles from '../../public/styles.css';
 
 const Modal = ({ picture }) => {
   const [popUp, setPopUp] = useState(false);
@@ -30,7 +31,7 @@ const Modal = ({ picture }) => {
     <span>
 
       <img
-        className="reviewPicture"
+        className={styles.reviewPicture}
         ref={currentPic}
         onClick={enlarge}
         onKeyDown={enlarge}
@@ -40,15 +41,15 @@ const Modal = ({ picture }) => {
       />
 
       {popUp ? (
-        <div className="backdrop">
+        <div className={styles.backdrop}>
           <img
-            className="modal"
+            className={styles.modal}
             src={picture}
             alt="pictureModal"
             srcSet={`${picture}_small.webp 100w, ${picture}_medium.webp 400w`}
           />
           <button
-            className="modalBtn"
+            className={styles.modalBtn}
             type="button"
             label="close"
             onClick={enlarge}

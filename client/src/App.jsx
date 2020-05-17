@@ -61,32 +61,32 @@ class App extends Component {
       isOpen, average, reviews,
     } = this.state;
     return (
-      <div className="customerReviewsWrapper">
+      <div className={styles.customerReviewsWrapper}>
 
-        <div className="customerReviewsAccordion">
-          <button type="button" className={`navBar ${isOpen ? 'isOpen' : null}`} onClick={this.toggleAccordian}>
+        <div className={styles.customerReviewsAccordion}>
+          <button type="button" className={`${styles.navBar}`.concat(` ${isOpen ? 'isOpen' : null}`)} onClick={this.toggleAccordian}>
             Customer Reviews
-            <div className="openClose">{isOpen ? <AiOutlineMinusCircle /> : <BsPlusCircle /> }</div>
+            <div className={styles.openClose}>{ isOpen ? <AiOutlineMinusCircle /> : <BsPlusCircle /> }</div>
           </button>
         </div>
 
-        <div className="customerReviews">
+        <div className={styles.customerReviews}>
           <Accordian isOpen={isOpen}>
 
             <Ratings rating={average} />
 
-            <div className="disclaimer">
+            <div className={styles.disclaimer}>
               Please note that by submitting a helpfulness vote on a review your IP address is collected and stored by our trusted third party service provider for the sole purpose of preventing multiple entries from the same IP address. To see how to control your personal data, please see our
               <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}> Privacy policy</a>
               .
             </div>
             <br />
 
-            <div className="overallTitle review">
+            <div className={`${styles.overallTitle}`.concat(` ${styles.review}`)}>
               <div>
                 <b>Reviews</b>
               </div>
-              <select className="sortBy selectBar" defaultValue="Relevant">
+              <select className={`${styles.sortBy}`.concat(` ${styles.selectBar}`)} defaultValue="Relevant">
                 <option value="newestFirst">Date - Newest First</option>
                 <option value="oldestFirst">Date - Oldest First</option>
                 <option value="highToLow">Rating - High to Low</option>
