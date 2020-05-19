@@ -35,18 +35,16 @@ const Modal = ({ picture }) => {
         ref={currentPic}
         onClick={enlarge}
         onKeyDown={enlarge}
-        src={`${picture}.webp`}
+        src={`${picture}_small.webp`}
         alt="ReviewPicture"
-        srcSet={`${picture}_small.webp 100w, ${picture}_medium.webp 400w`}
       />
 
       {popUp ? (
         <div className={styles.backdrop}>
           <img
             className={styles.modal}
-            src={picture}
+            src={`${picture}_medium.webp`}
             alt="pictureModal"
-            srcSet={`${picture}_small.webp 100w, ${picture}_medium.webp 400w`}
           />
           <button
             className={styles.modalBtn}
