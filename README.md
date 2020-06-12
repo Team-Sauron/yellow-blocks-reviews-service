@@ -1,6 +1,6 @@
-## Project Smego
+## Yellow Blocks
 
->Reviews for Project Smego
+> This component renders the total, average and single customer reviews for the Yellow Blocks eCommerce website.
 
 ## Related Projects
 
@@ -9,7 +9,7 @@
   - https://github.com/Team-Sauron/smego-info-section
   - https://github.com/Team-Sauron/smego-reviews-service
 
-## Table of Contents
+# Table of Contents
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
@@ -17,14 +17,34 @@
 
 ## Usage
 
-> Some usage instructions
+> This app contains unique pages from /1 to /10000000. Feel free to check out any pages between then.  
+
+> To start up a local server:
+
+```sh
+npm start
+```
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+### Running server and client locally
 
-- Node 6.13.0
-- etc
+```sh
+npm start
+npm run build:dev
+```
+
+### Seeding the database
+
+```sh
+npm run seed:db
+```
+
+### Running test
+
+```sh
+npm test
+```
 
 ## Development
 
@@ -33,6 +53,5 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
 ```
