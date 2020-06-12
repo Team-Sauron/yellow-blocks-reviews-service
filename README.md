@@ -1,6 +1,6 @@
 ## Yellow Blocks
 
-> This component renders the customer reviews section for the Yellow Blocks eCommerce website.
+> This component renders the total and average reviews for the current product as well as any customer review for the Yellow Blocks eCommerce website.
 
 ## Related Projects
 
