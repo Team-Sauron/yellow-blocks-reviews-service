@@ -18,7 +18,12 @@
 
 ## Usage
 
-> This app contains unique pages from /1 to /10000000. Feel free to check out any pages between then.  
+> This app contains unique pages from /1 to /10000000. Feel free to check out any pages between then.
+
+Example:
+```
+http://localhost:3003/?pid=1337
+```
 
 ## Requirements
 
