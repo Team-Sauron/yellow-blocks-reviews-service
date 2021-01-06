@@ -16,7 +16,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-loader": "^8.1.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
