@@ -24,7 +24,7 @@
     "faker": "^4.1.0",
     "jest": "^26.0.1",
     "jquery": "^3.5.0",
-    "moment": "^2.25.3",
+    "moment": "^2.29.4",
     "mongoose": "^5.9.10",
     "nodemon": "^2.0.3",
     "puppeteer": "^3.0.2",
